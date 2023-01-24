@@ -1,6 +1,15 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
 
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+
+
+
+
+
+
 /*
 	Story by HTML5 UP
 	html5up.net | @ajlkn
@@ -24,9 +33,11 @@ section, summary, time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: miller-banner,serif;
-	font-weight: 100;
-	font-style: bold;}
+	
+	
+	font-family: 'Nanum Myeongjo', serif;
+	font-weight: 400;
+	font-style: serif;}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -55,6 +66,12 @@ ul.logos-list li{
 }
 
 
+.SOC-caption p {
+	text-align: justify ;
+	text-align-last: none;
+	font-size: 80%;
+
+}
 
 
 
@@ -96,7 +113,7 @@ ul.logos-list li{
     min-height: 50%;
     min-width: 50%;
 	z-index: -0.5;
-	opacity: 0.6;
+	opacity: 0.3;
 	
 }
 @media (min-aspec-ratio: 16/9) {
@@ -2998,7 +3015,7 @@ input, select, textarea {
 /* Section/Article */
 
 	section.special, article.special {
-		text-align: center;
+		text-align: justify;
 	}
 
 	header p {
