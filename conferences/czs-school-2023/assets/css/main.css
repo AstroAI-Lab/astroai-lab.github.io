@@ -74,7 +74,14 @@ ul.logos-list li{
 }
 
 
+.button-bigger {
+	font-size: 1em !important;
+}
 
+.justify {
+	text-align: justify ;
+	text-align-last: none;
+}
 .logo-container img{
 	display: inline-block;
     margin: 0 auto;
