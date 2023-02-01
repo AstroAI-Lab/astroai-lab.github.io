@@ -451,11 +451,11 @@ input, select, textarea {
 
 	code {
 		background: rgba(0, 0, 0, 0.05);
-		border-color: rgba(0, 0, 0, 0.2);
+		border-color: #f8d093;
 	}
 
 	hr {
-		border-bottom-color: rgba(0, 0, 0, 0.2);
+		border-bottom-color:#f8d093;
 	}
 
 /* Row */
@@ -2193,7 +2193,7 @@ input, select, textarea {
 		}
 
 	.box {
-		border-color: rgba(0, 0, 0, 0.2);
+		border-color:#f8d093;
 	}
 
 /* Button */
@@ -7757,6 +7757,7 @@ input, select, textarea {
 		justify-content: center;
 		margin: 3rem 0;
 		position: relative;
+		
 	}
 
 		.items.style1 > * {
@@ -8730,3 +8731,76 @@ input, select, textarea {
 			#wrapper.divided > .invert:first-child {
 				box-shadow: none !important;
 			}
+
+	
+					
+			
+	
+				#wrapper > .new-lines blockquote {
+					border-left-color: white;
+				}
+	
+				#wrapper > .new-lines code {
+					background: rgba(255, 255, 255, 0.125);
+					border-color: white;
+				}
+	
+				#wrapper > .new-lines hr {
+					border-bottom-color: white;
+				}
+	
+				#wrapper > .new-lines .box {
+					border-color: white;
+				}
+
+
+
+				#wrapper > .new-lines input[type="text"],
+				#wrapper > .new-lines input[type="password"],
+				#wrapper > .new-lines input[type="email"],
+				#wrapper > .new-lines input[type="tel"],
+				#wrapper > .new-lines input[type="search"],
+				#wrapper > .new-lines input[type="url"],
+				#wrapper > .new-lines select,
+				#wrapper > .new-lines textarea {
+					border-color: white;
+				}
+
+
+
+
+				#wrapper > .new-lines table tbody tr {
+					border-color: white;
+				}
+	
+					#wrapper > .new-lines table tbody tr:nth-child(2n + 1) {
+						background-color: rgba(255, 255, 255, 0.125);
+					}
+	
+					#wrapper > .new-lines table tbody tr.alt {
+						background-color:#f8d093 !important;
+					}
+	
+				#wrapper > .new-lines table th {
+					color: #ffffff;
+				}
+	
+				#wrapper > .new-lines table thead {
+					border-bottom-color: white;
+				}
+	
+				#wrapper > .new-lines table tfoot {
+					border-top-color: white;
+				}
+	
+				#wrapper > .new-lines table.alt tbody tr td {
+					border-color: white;
+				}
+	
+				#wrapper > .new-lines table.uniform tbody tr:nth-child(2n + 1) {
+					background-color: transparent;
+				}
+
+				.wrapper.new-lines{
+					color: #ffffff;
+				}
