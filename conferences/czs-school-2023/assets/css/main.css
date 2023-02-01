@@ -5,9 +5,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Ahom&display=swap');
 
-
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 
 
 /*
@@ -35,7 +35,7 @@ section, summary, time, mark, audio, video {
 	vertical-align: baseline;
 	
 	
-	font-family: 'Nanum Myeongjo', serif;
+	font-family: 'PT Serif', serif;
 	font-weight: 400;
 	font-style: serif;}
 
