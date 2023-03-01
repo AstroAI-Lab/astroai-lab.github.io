@@ -2608,6 +2608,11 @@ input, select, textarea {
 					width: 100%;
 				}
 
+				.tiles article > .image source {
+					display: block;
+					width: 100%;
+				}
+
 				.tiles article > .image:before {
 					pointer-events: none;
 					-moz-transition: background-color 0.5s ease, opacity 0.5s ease;
