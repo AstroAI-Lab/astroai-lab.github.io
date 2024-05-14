@@ -58,38 +58,110 @@
 						<div class="inner">
 							<h1>Research projects within the AstroAI-Lab</h1>
 							<!-- <span class="image main"><img src="images/banner_2.m4v" alt="" /></span> -->
-							<span class="image main">
-							<video autoplay loop muted>
-        							<source src="images/banner_2.mp4" type="video/mp4">
-								Your browser does not support the video tag.
-        						</video>
-							</span>
-							<p>AstroAI-Lab is a rather new research group and we are just getting started. Therefore the list of research projects is rather small.</p>
-							<h1>Bachelor and master student projects</h1>
+							<span class="image main"><img src="images/analogous_process_with_probability_distribution.gif" alt="" /></span>
+							<p>The AstroAI-Lab is a recently funded interdisciplinary research group and currently consist of three postdocs, two PhD students and several Bachelor and Master students that all work on the intersection of 
+								physics, astronomy, data science / informatics and machine learning. Below we list currently ongoign projects.</p>
+							<h2>Bachelor and master student projects</h2>
 							<p>You are a student and looking for some interesting thesis projects in astrophysics and/or machine learning? 
-								Our group has plenty open projects in the broad field of galaxy formation and physics-informed ML. 
+								Our group has plenty open projects in the broad field of galaxy formation, physics-informed ML and simulation-based inference. 
 								Do not hesitate to contact us if you like to know more about the projects or the group.</p>
-							
+
 							<section>
 								<h2>People and their projects</h2>
-								<h3>Eva: Star formation models in cosmological simulations </h3>
+								<h3>Christian: Deep multi-modal representation learning for stellar spectra</h3>
+								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
+									Given the rising number of surveys that measure spectra of Milky Way stars, the question of how to gain the most knowledge through cross-survey analyses becomes more 
+									important than ever. In this work, state of the art deep multi-modal representation learning algorithms are employed, including contrastive learning and multi-modal 
+									Variational Auto Encoders. Thus, resulting in representations that capture the informative aspects of the data. The representations produced by these algorithms, 
+									are then used as foundation for multi-modal tasks, such as cross-modal generation and fusion.
+								</p>
+								<h3>Anna: Identifying Cluster Types found with AstroLink in MW-like Galaxies</h3>
+								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
+									A galaxy's structure holds information on its formation and evolution including past merger events. To find such structures we employ <a href="https://astrolink.readthedocs.io/en/latest/">AstroLink</a>,
+									a hierarchical clustering algorithm designed for astronomical data, that identifies regions of overdensity in the galaxy. For the resulting clusters, 
+									we work on a pipeline to automatically label different types with an emphasis on differentiating between satellite dwarf galaxies and strongly disrupted 
+									satellites resulting in star streams in order to determine AstroLink's ability to find remnants of past mergers and to reconstruct the galaxy's merger history. 
+									Additonally, we investigate the young and compact clusters found in the disk to determine their origin and characteristics.
+								</p>
+								<h3>Lingyi: Model comparison and miss-specification detection for cosmological simulations</h3>
+								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
+									Cosmological simulation is a powerful tool in advancing our understanding of galaxy evolution and formation. There are many simulations capable of describing physical 
+									properties such as gas cooling, star formation, scale relationships, chemical bimodality, and more. A question naturally arises with these simulations: How close are 
+									they to the reality? Many previous studies evaluate galaxy simulations using scaling relations which could be biased with only a few physical properties. In this work, 
+									we apply a novel model misspecification detection technique based on Bayesian Inference to compare simulated galaxy images from NIHAO and IllustrisTNG simulations against 
+									SDSS observations. After encoding images to summary space preserving original information as much as possible, a distribution discrepancy between real observed data and 
+									mock data in summary space indicates model misspecification. To this purpose, we perform an outlier detection on latent vectors. We further compare the inliers in summary 
+									space by casting Bayesian model comparison to classification task, to see which model is relatively the best. Additionally, we use explainable AI methods like SHAP values 
+									to partially explain our results.
+								</p>
+								<h3>Justin: Machine learning models for emission line prediction</h3>
+								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
+									Line emissivities of active galactic nuclei (AGN) can be accurately computed using photoionization software like <a href="https://trac.nublado.org/">CLOUDY</a>, 
+									but the data generation is quite slow. In order to enable the fast generation of large amounts of data for example for further computations inside cosmological simulation codes, 
+									machine learning methods like Deep Fully Connected Neural Networks or Neural Operators can be applied. The data required for training is generated once with cloudy as a 6 dimensional 
+									grid in the dimensions Eddington Luminosity, black hole mass, gas temperature, metallicity, hydrogen density and distance. The goal is to interpolate this data as fast and accurately 
+									as possible. 
+								</p>
+								<h3>Robin: Neural Operator learning for astrophysical problems</h3>
+								<p><span class="image left"><img src="images/robin.png" alt="" /></span>
+									Robin is generally interested in efficient and scalable solutions to computational problems, mainly utilising machine learning. 
+									Such solutions can often be found by using model architectures that take the symmetries of the underlying problem or data into account.
+									Currently, his project applies neural operators like DeepONet to predict the time evolution of functions like cosmic ray spectra or chemical abundances. 
+									In addition to inference time, accuracy and memory footprint, it is also of interest to quantify the predictive uncertainty in these applications to decide how much 
+									to trust the predictions of the surrogate model.
+								</p>
+								<h3>Sarp: Symplectic neural nets and hamiltonian neural nets for galactci dynamics</h3>
+								<h3>Leonard: Stellar wind models in AREPO</h3>
+								<h3>Christian: Representation learning and normalizing flows</h3>
+							</section>
+
+							<h2>PhD projects</h2>
+							<section>
+								<h2>People and their projects</h2>
+								<h3>Anna Lena: A numerical investigation on galactic outflows using NIHAO and GECKOS </h3>
+								<p><span class="image left"><img src="images/g8.26e11.01024_maps_gas_metals_r_0_50.jpeg" alt="" /></span>
+									The formation and evolution of galaxies is a complex and multiscale problem, where gas flows play an important role. Cosmological simulations have illustrated that 
+									feedback mechanism from stellar winds, radiation fields, supernovae and active galactic nuclei (AGNs) can effectively drive galactic winds. 
+									However, the details of the driving mechanisms behind gas in- and outflows are still unclear. Also, many cosmological simulations overlook Cosmic Rays 
+									(CRs, feedback from relativistic particles), which are another source of non-thermal feedback. We use the state-of-the-art cosmological hydrodynamical simulation of 
+									Milky Way like galaxies NIHAO (Numerical investigation of a hundred astrophysical objects) to study the effect of different feedback processes on gas in- and outflows at 
+									different gas temperatures to investigate in the underlying mechanisms driving gas flows. To validate and extend our findings, we study the edge-on spiral galaxies 
+									from the GECKOS (Generalising Edge-on galaxies and their Chemical bimodalities, Kinematics, and Outflows out to Solar environments) survey, a large MUSE program recently 
+									granted. We plan to use simulation-based inference to test the different feedback processes in our simulations on the observational data.
+								</p>
+								<h3>Giuseppe: Simulation-based inference for galactic archeology </h3>
+								<p><span class="image left"><img src="images/giuseppe.png" alt="" /></span>
+									
+								</p>
+							</section>
+
+							<h2>Postdoc projects</h2>
+							<section>
+								https://github.com/william-h-oliver/astrolink
+								<h2>People and their projects</h2>
+								<h3>William: Structural decomposition of synthetic and observational data sets with machine learning </h3>
+								<p><span class="image left"><img src="images/MW02.gif" alt="" /></span>
+									Among various topics, I am mainly interested in understanding structure formation and evolution particularly at the galactic and sub-galactic scales. 
+									As such, my research is currently focused on using novel machine learning techniques to build algorithms that are capable of classifying structure within both 
+									synthetic and observational data sets in a physically meaningful way. Recently I published <a href="https://github.com/william-h-oliver/astrolink">AstroLink</a> with the paper <a href="https://ui.adsabs.harvard.edu/abs/2024MNRAS.530.2637O/abstract">here</a>; an unsupervised, hierarchical, and density-based clustering 
+									algorithm (<a href="https://astrolink.readthedocs.io">fully documented on readthedocs</a>) that extracts arbitrarily-shaped statistically-robust overdensities from n-dimensional point-based data sets. Now I am developing FuzzyCat; a brute-force, 
+									model-agnostic, and empirical method of propagating the uncertainties of observational data sets into soft-labels for improved statistical analyses of clusters. 
+									In addition, I plan to create a locally-adaptive-metric scheme that learns a map between the cumulative distribution function of a data set and its image. 
+									With these tools I will reveal extensive structural catalogues of state-of-the-art N-body simulations as well as of our own Milky Way, pathing the way for a more 
+									complete understanding of structure formation and evolution within the context of Lambda-CDM.
+								</p>
+								<h3>Aura:  </h3>
+								<p><span class="image left"><img src="images/MW02.gif" alt="" /></span>
+									
+								</p>
+								<h3>Lorenzo:  </h3>
 								<p><span class="image left"><img src="images/pic14.jpg" alt="" /></span>
-									State-of-the-art cosmological hydrodynamical simulations of galaxy formation have reached the point at 
-									which their outcomes result in galaxies with ever more realism. Still, the employed sub-grid models 
-									are relatively simple empirical models that include several free parameters. One of the challenges is
-									the robust identification and characterization of star forming regions and various methods have been proposed. 
-									However, the results of these methods are often inconsistent and the underlying assumptions are not always
-									physically well motivated. In this project, we investigate how we can robustly identify star forming regions
-									in cosmological simulations and explore novel prescriptions of calculating the star formation efficiency of these regions.
+									to be filled
 								</p>
-								<h3>Rebekka: Galactic chemical enrichment in MW dwarf galaxies</h3>
-								<p><span class="image right"><img src="images/pic15.jpg" alt="" /></span>
-									With the advent of large spectroscopic surveys the amount of high quality chemodynamical data 
-									in the Milky Way and its satellite galaxies increased tremendously. Accurately and correctly capturing 
-									and explaining the detailed features in the high-quality observational data is notoriously difficult for 
-									state-of-the-art numerical models. Here we investigate a set of new cosmological galaxy formation models 
-									that include improved prescriptions for chemical enrichment and compare our findings to the observational data.
-								</p>
+							</section>
+
+							<h2>Past projects</h2>
+							<section>
 								<h3>Ufuk: Galaxy morphology models with AI</h3>
 								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
 									We investigate the use of machine learning to create galaxy morphology models and encode the information 
@@ -100,7 +172,53 @@
 									We find that a simple PCA model with 49 eigengalaxies can recover the general shape of 9763 two dimensional 
 									galaxy images and even if 99% of all images have a reconstruction error less than 9%, a more advanced model 
 									like a GAN is needed to describe highly nonlinear structures (e.g spiral arms) and small scale structures. 
-									All results with additional animations and interactive dashboards can be accessed through the <a href="https://github.com/ufuk-cakir/galaxy-morphology">GitHub-Repository</a> of Ufuk's thesis. 
+									All results are published <a href="https://arxiv.org/pdf/2312.06016.pdf">here</a> with all source code of the GAMMA project to be found 
+									<a href="https://github.com/ufuk-cakir/GAMMA">here</a>. Additional animations 
+									and interactive dashboards can be accessed through the <a href="https://github.com/ufuk-cakir/galaxy-morphology">GitHub-Repository</a> of Ufuk's thesis. 
+								</p>
+								<h3>Luca: GalacticFlow: Learning a Generalized Representation of Galaxies with Normalizing Flows </h3>
+								<p><span class="image left"><img src="images/tikz.jpg" alt="" /></span>
+									State-of-the-art galaxy formation simulations generate data within weeks or months. Their results consist of a random sub-sample of possible galaxies with a fixed number 
+									of stars. We propose a ML based method, <a href="https://arxiv.org/abs/2312.06017.pdf">GalacticFlow</a>, that generalizes such results. We use normalizing flows to learn the extended distribution function of galaxies 
+									conditioned on global galactic parameters. GalacticFlow then provides a continuized and condensed representation of the ensemble of galaxies in the data. 
+									Thus, essentially compressing large amounts of explicit simulation data into a small implicit generative model. Our model is able to evaluate any galaxy eDF given by a 
+									set of global parameters and allows generating arbitrarily many stars from it. We show that we can learn such a representation, embodying the entire mass range from 
+									dwarf to Milky Way mass, from only 90 galaxies in ∼18 hours on a single RTX2080Ti and generate a new galaxy of one million stars within a few seconds. All code to reproduce our results can be found <a href="https://github.com/luwo9/GalacticFlow">here</a>.
+								</p>
+								<h3>Immanuel: Speeding up astrochemical reaction networks with autoencoders and neural ODEs </h3>
+								<p><span class="image left"><img src="images/pic14.jpg" alt="" /></span>
+									In astrophysics, solving complex chemical reaction networks is essential but computationally demanding due to the high dimensionality and stiffness of the ODE systems. 
+									Traditional approaches for reducing computational load are often specialized to specific chemical networks and require expert knowledge. Immanuel's project introduces a machine 
+									learning-based solution employing autoencoders for dimensionality reduction and a latent space neural ODE solver to accelerate astrochemical reaction network computations. 
+									Additionally, we propose a cost-effective latent space linear function solver as an alternative to neural ODEs. These methods are assessed on a dataset comprising 29 chemical 
+									species and 224 reactions. Our findings, also published <a href="https://arxiv.org/pdf/2312.06015.pdf">here</a> demonstrate that the neural ODE achieves a 55x speedup over the baseline model while maintaining significantly higher accuracy by up 
+									to two orders of magnitude reduction in relative error. Furthermore, the linear latent model enhances accuracy and achieves a speedup of up to 4000x compared to standard 
+									methods. All code to reproduce our results can be found <a href="https://github.com/Immi000/ChemicalNeuralODE">here</a>.
+								</p>
+								<h3>Eva: Star formation models in cosmological simulations </h3>
+								<p><span class="image left"><img src="images/pic14.jpg" alt="" /></span>
+									State-of-the-art cosmological hydrodynamical simulations of galaxy formation have reached the point at 
+									which their outcomes result in galaxies with ever more realism. Still, the employed sub-grid models 
+									are relatively simple empirical models that include several free parameters. One of the challenges is
+									the robust identification and characterization of star forming regions and various methods have been proposed. 
+									However, the results of these methods are often inconsistent and the underlying assumptions are not always
+									physically well motivated. In this project, we investigate how we can robustly identify star forming regions
+									in cosmological simulations and explore novel prescriptions of calculating the star formation efficiency of these regions.
+								</p>
+								<h3>Kalina: Recreating the Hubble Tuning-Fork with generated galaxies using Normalising Flows </h3>
+								<p><span class="image left"><img src="images/pic14.jpg" alt="" /></span>
+									Through a detailed study of 95 galaxies from the NIHAO simulations, we estimate critical parameters like the bulge-to-total (B/T) ratio and bar strength, employing methodologies 
+									such as kinematic decomposition and Fourier analysis. This analysis allows us to explore the intricate diversity of galaxy morphologies and their physical properties.
+									Leveraging the power of normalizing flows, specifically the GalacticFlow model, we model the multidimensional parameter space derived from the new found galactic properties. 
+									This approach enables us to generate realistic galaxy simulations efficiently, capturing the vast variability in galactic structures. The thesis highlights the model's 
+									capability to replicate the classical Hubble tuning-fork diagram computationally, emphasizing the impact of parameters like the B/T ratio on galactic morphology.
+								</p>
+								<h3>Rebekka: Galactic chemical enrichment in MW dwarf galaxies </h3>
+								<p><span class="image left"><img src="images/pic14.jpg" alt="" /></span>
+									With the advent of large spectroscopic surveys the amount of high quality chemodynamical data in the Milky Way and its satellite galaxies increased tremendously. 
+									Accurately and correctly capturing and explaining the detailed features in the high-quality observational data is notoriously difficult for state-of-the-art numerical models. 
+									Here we investigate a set of new cosmological galaxy formation models that include improved prescriptions for chemical enrichment and compare our findings to the 
+									observational data.
 								</p>
 							</section>
 						</div>
