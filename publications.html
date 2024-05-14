@@ -60,6 +60,17 @@
 							<span class="image main"><img src="images/banner_1.jpeg" alt="" /></span>
 							<h2>Journal publications</h2>
 							<p>Our AstroAI-Lab publication list can be found at Nasa's <a href="https://ui.adsabs.harvard.edu/search/q=docs(library%2FlY5qK-D_QPaJTpom-186mg)&sort=date%20desc%2C%20bibcode%20desc&p_=0">ADS system</a>.</p>
+							
+							<p>
+								<script src="https://tobias-buck.de/publication_list/bibtexify/bibtexify.js"></script>
+								<link rel="stylesheet" href="https://tobias-buck.de/publication_list/bibtexify/css/bibtexify.css" type="text/css"/>
+							<table id="pubTable" class="display"></table>
+							<p>
+								<script>
+								bibtexify("https://tobias-buck.de/publication_list/publications.bib", "pubTable");
+								</script>
+							</p>
+
 							<h2>Other resources</h2>
 						</div>
 					</div>
