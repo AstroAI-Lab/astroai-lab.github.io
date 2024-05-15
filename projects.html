@@ -139,7 +139,18 @@
 								</p>
 								<h3>Giuseppe: Simulation-based inference for galactic archeology </h3>
 								<p><span class="image left"><img src="images/giuseppe2.png" alt="" /></span>
-									to be filled with text...
+									Galaxies evolve through merging and accreting dwarf galaxies therby destroying lower-mass systems over their lifetimes. 
+									The contribution that those lower-mass systems bring to the present-day stellar body has been frozen in stellar halos by the long orbital 
+									timescales, making the relicts of this object retain part of their initial progenitor orbit. But dynamical information is not enough to 
+									disentangle these components, and the complementary chemical information helps to characterize these building blocks. 
+									In fact, chemical abundances of stars are conserved quantities, making the chemical abundance plane ([Fe/H] vs [O/Fe]) a distinct imprint 
+									that retains information on the conditions of formation of their stars, like the total mass and the age of the system until the merging 
+									event. This theoretical background allows us to attempt to decompose the stellar halo into its components, unraveling the merger history of Milky Way-like galaxies. 
+									In the modern era of large N-body galaxy simulations, we recast this question into a Simulation-Based Inference problem to recover the properties of this building block, 
+									(e.g. total stellar mass, infall time, ...) using the chemical abundance plane as observables. 
+									We therefore present CASBI (Chemical Abundance Simulation Based Inference), a python package to recover the posterior probability of properties of building blocks of 
+									Milky Way like galaxy halo. Moreover, CASBI incorporates conditional neural network architectures as simulators to obtain observables from parameters, 
+									smoothly interpolating on unseen regions of the parameter space.
 								</p>
 							</section>
 
@@ -157,9 +168,40 @@
 									With these tools I will reveal extensive structural catalogues of state-of-the-art N-body simulations as well as of our own Milky Way, pathing the way for a more 
 									complete understanding of structure formation and evolution within the context of Lambda-CDM.
 								</p>
-								<h3>Aura:  </h3>
+								<h3>Aura: Quasar properties from large scale CGM emission </h3>
+								<p><span class="image left"><img src="images/aura.jpeg" alt="" /></span>
+									When quasars (supermassive black holes accreting at rates comparable to their Eddington limit) have large amounts of cool (T~10^4K) gas 
+									in their environment (the circumgalactic medium - CGM - of their host galaxies), we can sometimes observe large scale (up to hundreds of 
+									kpc) glows or nebulae in the UV emission lines surrounding the host galaxies (e.g. Cantalupo et al. 2014, Hennawi et al. 2015, Arrigoni Battaia et al. 2019). 
+									These nebulae encode information about both the amount and state of the cool CGM gas in massive dark matter halos at high redshifts, as well as the central 
+									engine driving the emission. Thus, emission glows can be used to understand the baryon cycle around massive galaxies and the impact of high-energy phenomena 
+									such as black hole feedback on the large-scale gas fuel for star formation - the galaxies' CGM.
+
+									We are building a large database of photoionization models, covering the full property space of quasars (e.g. black hole mass, accretion 
+									rate) and the full property space of the CGM gas (density, temperature, composition), which will be used to generate synthetic 
+									observations for CGM (see also <a href="https://arxiv.org/pdf/2311.01503.pdf">our recent paper</a>), as shown in the figure on the left. To efficiently generate such observations, we are training neural 
+									networks/operators on the CGM properties of interest (e.g. line emissivities, ionization fraction of different atomic species, 
+									heating and cooling rates), with the goal of developing a simulation-based inference pipeline that can be applied to real observations.
+								</p>
+								<h3>Aura: <a href="https://github.com/aobr/gsf2">Galactic Structure Finder (GSF):</a> a tool to reveal the building
+									blocks of galaxies </h3>
 								<p><span class="image left"><img src="images/pic14.jpg" alt="" /></span>
-									to be filled
+									GSF is a Python analysis code that searches for galaxy substructure in n- dimensional (nD) stellar feature spaces using Gaussian Mixture 
+									Models (GMMs), and constructs summary statistics of these components. We are developing it with the goal of understanding how the building 
+									blocks of galaxies form and evolve, and how they relate to the dark universe.
+									
+									The code is equipped with two model selection criteria that can rank the models (described by the number of multivariate Gaussians n) 
+									from best to worst. In contrast to the common practice in astrophysics of using poorly physically motivated functions to model partially 
+									overlapping galaxy substructures, such as disks, bulges, bars, and stellar halos, GSF performs a purely data-driven unsupervised 
+									partitioning of galaxies, for any user-defined input feature space (spatial, dynamical, and population properties can be mixed in any 
+									way the user imagines).
+
+									The figures on the right refer to a simulated <a href="https://www.tng-project.org">TNG50 galaxy</a> that was analyzed with GSF in an input 6D feature 
+									space to reveal a disk, bar, and spheroid (Obreja et al. in prep). This type of partitioning allows the detailed study of the formation 
+									history of individual galaxy components.
+
+									As an interesting application, galaxy components separated by GSF on the basis of their dynamics have also been shown to be good 
+									proxies for properties of dark matter halos that are beyond the reach of observations, such as halo spins as shown in our <a href="https://arxiv.org/pdf/2110.114902022.pdf">2022 paper</a>.
 								</p>
 								<h3>Lorenzo:  </h3>
 								<p><span class="image left"><img src="images/pic14.jpg" alt="" /></span>
