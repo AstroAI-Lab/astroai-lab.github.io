@@ -1,0 +1,801 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rubix.galaxy.input_handler package &#8212; rubix 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rubix.galaxy.input_handler';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rubix.pipeline package" href="rubix.pipeline.html" />
+    <link rel="prev" title="rubix.galaxy package" href="rubix.galaxy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">rubix 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">RUBIX documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to RUBIX’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Code versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/create_rubix_data.html">Create RUBIX data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/pipeline_demo.html">Concept of the pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/rubix_pipeline_single_function.html">RUBIX pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/rubix_pipeline_stepwise.html">RUBIX pipeline in steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/cosmology.html">Cosmology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/telescope.html">Telescopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/spaxel_assignment.html">Spaxel assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/ssp_template.html">Load supported SSP templates</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/psf.html">The point spread function</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code documentation:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rubix.core.html">rubix.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix.cosmology.html">rubix.cosmology package</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="rubix.galaxy.html">rubix.galaxy package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">rubix.galaxy.input_handler package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix.pipeline.html">rubix.pipeline package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rubix.spectra.html">rubix.spectra package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rubix.spectra.ssp.html">rubix.spectra.ssp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rubix.telescope.html">rubix.telescope package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.lsf.html">rubix.telescope.lsf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.psf.html">rubix.telescope.psf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.noise.html">rubix.telescope.noise package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix.utils.html">utils</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ufuk-cakir/rubix" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/rubix.galaxy.input_handler.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>rubix.galaxy.input_handler package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.galaxy.input_handler.base">rubix.galaxy.input_handler.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler"><code class="docutils literal notranslate"><span class="pre">BaseHandler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.get_galaxy_data"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_galaxy_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.get_particle_data"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_particle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.get_simulation_metadata"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_simulation_metadata()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.get_units"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_units()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.to_rubix"><code class="docutils literal notranslate"><span class="pre">BaseHandler.to_rubix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.create_rubix_galaxy"><code class="docutils literal notranslate"><span class="pre">create_rubix_galaxy()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.galaxy.input_handler.factory">rubix.galaxy.input_handler.factory module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.galaxy.input_handler.illustris">rubix.galaxy.input_handler.illustris module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_galaxy_data"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler.get_galaxy_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_particle_data"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler.get_particle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_simulation_metadata"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler.get_simulation_metadata()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_units"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler.get_units()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.galaxy.input_handler">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler"><code class="docutils literal notranslate"><span class="pre">BaseHandler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.get_galaxy_data"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_galaxy_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.get_particle_data"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_particle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.get_simulation_metadata"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_simulation_metadata()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.get_units"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_units()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.to_rubix"><code class="docutils literal notranslate"><span class="pre">BaseHandler.to_rubix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI.DEFAULT_FIELDS"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI.DEFAULT_FIELDS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI.get_particle_data"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI.get_particle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI.get_subhalo"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI.get_subhalo()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI.load_galaxy"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI.load_galaxy()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.get_input_handler"><code class="docutils literal notranslate"><span class="pre">get_input_handler()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rubix-galaxy-input-handler-package">
+<h1>rubix.galaxy.input_handler package<a class="headerlink" href="#rubix-galaxy-input-handler-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-rubix.galaxy.input_handler.base">
+<span id="rubix-galaxy-input-handler-base-module"></span><h2>rubix.galaxy.input_handler.base module<a class="headerlink" href="#module-rubix.galaxy.input_handler.base" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.base.BaseHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.galaxy.input_handler.base.</span></span><span class="sig-name descname"><span class="pre">BaseHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.base.BaseHandler" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for handling input data and converting it to Rubix format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration for the BaseHandler.</p></li>
+<li><p><strong>_logger</strong> (<em>logging.Logger</em>) – Logger object to log messages.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.base.BaseHandler.get_galaxy_data">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_galaxy_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.get_galaxy_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.base.BaseHandler.get_galaxy_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns the galaxy data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.base.BaseHandler.get_particle_data">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_particle_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.get_particle_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.base.BaseHandler.get_particle_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns the particle data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.base.BaseHandler.get_simulation_metadata">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_simulation_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.get_simulation_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.base.BaseHandler.get_simulation_metadata" title="Link to this definition">#</a></dt>
+<dd><p>Returns the simulation meta data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.base.BaseHandler.get_units">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_units</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.get_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.base.BaseHandler.get_units" title="Link to this definition">#</a></dt>
+<dd><p>Returns the units in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.base.BaseHandler.to_rubix">
+<span class="sig-name descname"><span class="pre">to_rubix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.to_rubix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.base.BaseHandler.to_rubix" title="Link to this definition">#</a></dt>
+<dd><p>Converts the input data to Rubix format and saves it to the output path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>output_path</strong> (<em>str</em>) – Path to save the Rubix file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.base.create_rubix_galaxy">
+<span class="sig-prename descclassname"><span class="pre">rubix.galaxy.input_handler.base.</span></span><span class="sig-name descname"><span class="pre">create_rubix_galaxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particle_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">galaxy_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_metadata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Logger</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#create_rubix_galaxy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.base.create_rubix_galaxy" title="Link to this definition">#</a></dt>
+<dd><p>Create a Rubix file with the given data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_path</strong> (<em>str</em>) – Path to save the Rubix file.</p></li>
+<li><p><strong>particle_data</strong> (<em>dict</em>) – Dictionary containing the particle data.</p></li>
+<li><p><strong>galaxy_data</strong> (<em>dict</em>) – Dictionary containing the galaxy data.</p></li>
+<li><p><strong>simulation_metadata</strong> (<em>dict</em>) – Dictionary containing the simulation metadata.</p></li>
+<li><p><strong>units</strong> (<em>dict</em>) – Dictionary containing the units.</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Dictionary containing the configuration.</p></li>
+<li><p><strong>logger</strong> (<em>logging.Logger</em>) – Logger object to log messages.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-rubix.galaxy.input_handler.factory">
+<span id="rubix-galaxy-input-handler-factory-module"></span><h2>rubix.galaxy.input_handler.factory module<a class="headerlink" href="#module-rubix.galaxy.input_handler.factory" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-rubix.galaxy.input_handler.illustris">
+<span id="rubix-galaxy-input-handler-illustris-module"></span><h2>rubix.galaxy.input_handler.illustris module<a class="headerlink" href="#module-rubix.galaxy.input_handler.illustris" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.illustris.IllustrisHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.galaxy.input_handler.illustris.</span></span><span class="sig-name descname"><span class="pre">IllustrisHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/illustris.html#IllustrisHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rubix.galaxy.input_handler.base.BaseHandler" title="rubix.galaxy.input_handler.base.BaseHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHandler</span></code></a></p>
+<p>This class is used to handle the input data from the Illustris simulation.
+The data is stored in HDF5 files, which are read using the h5py library.
+The data is then converted to physical units using the values in the header of the file.
+The data is then stored in a dictionary, which can be accessed using the get_particle_data() method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.illustris.IllustrisHandler.get_galaxy_data">
+<span class="sig-name descname"><span class="pre">get_galaxy_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/illustris.html#IllustrisHandler.get_galaxy_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_galaxy_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns the galaxy data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.illustris.IllustrisHandler.get_particle_data">
+<span class="sig-name descname"><span class="pre">get_particle_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/illustris.html#IllustrisHandler.get_particle_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_particle_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns the particle data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.illustris.IllustrisHandler.get_simulation_metadata">
+<span class="sig-name descname"><span class="pre">get_simulation_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/illustris.html#IllustrisHandler.get_simulation_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_simulation_metadata" title="Link to this definition">#</a></dt>
+<dd><p>Returns the simulation meta data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.illustris.IllustrisHandler.get_units">
+<span class="sig-name descname"><span class="pre">get_units</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/illustris.html#IllustrisHandler.get_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_units" title="Link to this definition">#</a></dt>
+<dd><p>Returns the units in the required format</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rubix.galaxy.input_handler">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rubix.galaxy.input_handler" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.BaseHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.galaxy.input_handler.</span></span><span class="sig-name descname"><span class="pre">BaseHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.BaseHandler" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Base class for handling input data and converting it to Rubix format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration for the BaseHandler.</p></li>
+<li><p><strong>_logger</strong> (<em>logging.Logger</em>) – Logger object to log messages.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.BaseHandler.get_galaxy_data">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_galaxy_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.get_galaxy_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.BaseHandler.get_galaxy_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns the galaxy data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.BaseHandler.get_particle_data">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_particle_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.get_particle_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.BaseHandler.get_particle_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns the particle data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.BaseHandler.get_simulation_metadata">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_simulation_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.get_simulation_metadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.BaseHandler.get_simulation_metadata" title="Link to this definition">#</a></dt>
+<dd><p>Returns the simulation meta data in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.BaseHandler.get_units">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_units</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.get_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.BaseHandler.get_units" title="Link to this definition">#</a></dt>
+<dd><p>Returns the units in the required format</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.BaseHandler.to_rubix">
+<span class="sig-name descname"><span class="pre">to_rubix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/base.html#BaseHandler.to_rubix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.BaseHandler.to_rubix" title="Link to this definition">#</a></dt>
+<dd><p>Converts the input data to Rubix format and saves it to the output path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>output_path</strong> (<em>str</em>) – Path to save the Rubix file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.IllustrisAPI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.galaxy.input_handler.</span></span><span class="sig-name descname"><span class="pre">IllustrisAPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particle_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['stars',</span> <span class="pre">'gas']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'TNG50-1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snapshot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_data_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./api_data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/api/illustris_api.html#IllustrisAPI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.IllustrisAPI" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is used to load data from the Illustris API.</p>
+<p>It loads both subhalo data and particle data from a given simulation, snapshot, and subhalo ID.</p>
+<p>Check the source for the API documentation for more information: <a class="reference external" href="https://www.tng-project.org/data/docs/api/">https://www.tng-project.org/data/docs/api/</a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.IllustrisAPI.DEFAULT_FIELDS">
+<span class="sig-name descname"><span class="pre">DEFAULT_FIELDS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'gas':</span> <span class="pre">['Coordinates',</span> <span class="pre">'Density',</span> <span class="pre">'Masses',</span> <span class="pre">'GFM_Metallicity',</span> <span class="pre">'StarFormationRate',</span> <span class="pre">'InternalEnergy',</span> <span class="pre">'Velocities',</span> <span class="pre">'ElectronAbundance'],</span> <span class="pre">'stars':</span> <span class="pre">['Coordinates',</span> <span class="pre">'GFM_InitialMass',</span> <span class="pre">'GFM_Metallicity',</span> <span class="pre">'GFM_StellarFormationTime',</span> <span class="pre">'Velocities']}</span></em><a class="headerlink" href="#rubix.galaxy.input_handler.IllustrisAPI.DEFAULT_FIELDS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.IllustrisAPI.get_particle_data">
+<span class="sig-name descname"><span class="pre">get_particle_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particle_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/api/illustris_api.html#IllustrisAPI.get_particle_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.IllustrisAPI.get_particle_data" title="Link to this definition">#</a></dt>
+<dd><p>Get particle data from the Illustris API.</p>
+<p>Returns the particle data for the given subhalo ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em>) – Subhalo ID to load.</p></li>
+<li><p><strong>fields</strong> (<em>str</em><em> or </em><em>list</em>) – Fields to load. If a string, the fields should be comma-separated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing the particle data in the given fields (data).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.IllustrisAPI.get_subhalo">
+<span class="sig-name descname"><span class="pre">get_subhalo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/api/illustris_api.html#IllustrisAPI.get_subhalo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.IllustrisAPI.get_subhalo" title="Link to this definition">#</a></dt>
+<dd><p>Get subhalo data from the Illustris API.</p>
+<p>Returns the subhalo data for the given subhalo ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – Subhalo ID to load.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The subhalo data as a dictionary (r).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.IllustrisAPI.load_galaxy">
+<span class="sig-name descname"><span class="pre">load_galaxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reuse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/api/illustris_api.html#IllustrisAPI.load_galaxy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.IllustrisAPI.load_galaxy" title="Link to this definition">#</a></dt>
+<dd><p>Download Galaxy Data from the Illustris API.</p>
+<p>This function downloads both the subhalo data and the particle data for stars and gas particles, for the fields specified in DEFAULT_FIELDS.
+It saves the data in a HDF5 file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>int</em>) – The ID of the subhalo to download.</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em>) – Whether to overwrite the file if it already exists. Default is False.</p></li>
+<li><p><strong>reuse</strong> (<em>bool</em>) – Whether to reuse the file if it already exists. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The galaxy data as dictionary.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">illustris_api</span> <span class="o">=</span> <span class="n">IllustrisAPI</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">simulation</span><span class="o">=</span><span class="s2">&quot;TNG50-1&quot;</span><span class="p">,</span> <span class="n">snapshot</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">particle_type</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;stars&quot;</span><span class="p">,</span> <span class="s2">&quot;gas&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">illustris_api</span><span class="o">.</span><span class="n">load_galaxy</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.galaxy.input_handler.get_input_handler">
+<span class="sig-prename descclassname"><span class="pre">rubix.galaxy.input_handler.</span></span><span class="sig-name descname"><span class="pre">get_input_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rubix.galaxy.input_handler.base.BaseHandler" title="rubix.galaxy.input_handler.base.BaseHandler"><span class="pre">BaseHandler</span></a></span></span><a class="reference internal" href="_modules/rubix/galaxy/input_handler/factory.html#get_input_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.galaxy.input_handler.get_input_handler" title="Link to this definition">#</a></dt>
+<dd><p>Creates a handler based on the config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration for the handler</p></li>
+<li><p><strong>logger</strong> (<em>Logger</em>) – Logger object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>BaseHandler based on the config</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rubix.galaxy.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rubix.galaxy package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rubix.pipeline.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rubix.pipeline package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.galaxy.input_handler.base">rubix.galaxy.input_handler.base module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler"><code class="docutils literal notranslate"><span class="pre">BaseHandler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.get_galaxy_data"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_galaxy_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.get_particle_data"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_particle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.get_simulation_metadata"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_simulation_metadata()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.get_units"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_units()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.BaseHandler.to_rubix"><code class="docutils literal notranslate"><span class="pre">BaseHandler.to_rubix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.base.create_rubix_galaxy"><code class="docutils literal notranslate"><span class="pre">create_rubix_galaxy()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.galaxy.input_handler.factory">rubix.galaxy.input_handler.factory module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.galaxy.input_handler.illustris">rubix.galaxy.input_handler.illustris module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_galaxy_data"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler.get_galaxy_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_particle_data"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler.get_particle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_simulation_metadata"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler.get_simulation_metadata()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.illustris.IllustrisHandler.get_units"><code class="docutils literal notranslate"><span class="pre">IllustrisHandler.get_units()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.galaxy.input_handler">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler"><code class="docutils literal notranslate"><span class="pre">BaseHandler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.get_galaxy_data"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_galaxy_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.get_particle_data"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_particle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.get_simulation_metadata"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_simulation_metadata()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.get_units"><code class="docutils literal notranslate"><span class="pre">BaseHandler.get_units()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.BaseHandler.to_rubix"><code class="docutils literal notranslate"><span class="pre">BaseHandler.to_rubix()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI.DEFAULT_FIELDS"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI.DEFAULT_FIELDS</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI.get_particle_data"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI.get_particle_data()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI.get_subhalo"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI.get_subhalo()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.IllustrisAPI.load_galaxy"><code class="docutils literal notranslate"><span class="pre">IllustrisAPI.load_galaxy()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.galaxy.input_handler.get_input_handler"><code class="docutils literal notranslate"><span class="pre">get_input_handler()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ufuk, Tobias, Anna Lena
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Ufuk, Tobias, Anna Lena.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

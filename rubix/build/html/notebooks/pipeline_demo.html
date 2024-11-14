@@ -1,0 +1,1344 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Concept of the pipeline &#8212; rubix 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/pipeline_demo';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RUBIX pipeline" href="rubix_pipeline_single_function.html" />
+    <link rel="prev" title="Create RUBIX data" href="create_rubix_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">rubix 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">RUBIX documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to RUBIX’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">Code versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="create_rubix_data.html">Create RUBIX data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Concept of the pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix_pipeline_single_function.html">RUBIX pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix_pipeline_stepwise.html">RUBIX pipeline in steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmology.html">Cosmology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="telescope.html">Telescopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spaxel_assignment.html">Spaxel assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssp_template.html">Load supported SSP templates</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="psf.html">The point spread function</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rubix.core.html">rubix.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rubix.cosmology.html">rubix.cosmology package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rubix.galaxy.html">rubix.galaxy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.galaxy.input_handler.html">rubix.galaxy.input_handler package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../rubix.pipeline.html">rubix.pipeline package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rubix.spectra.html">rubix.spectra package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.spectra.ssp.html">rubix.spectra.ssp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rubix.telescope.html">rubix.telescope package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.telescope.lsf.html">rubix.telescope.lsf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.telescope.psf.html">rubix.telescope.psf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.telescope.noise.html">rubix.telescope.noise package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../rubix.utils.html">utils</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ufuk-cakir/rubix" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/pipeline_demo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Concept of the pipeline</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-ideas">Basic ideas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restrictions">Restrictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-some-simple-decorator-for-function-configuration">Build some simple decorator for function configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-transformer-to-jit-individual-elements-and-bind-them-to-traceable-partial-arguments">Compiling transformer to jit individual elements and bind them to traceable partial arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expression-based-decorator-for-getting-out-the-intermediate-jaxpr-object-for-inspection">Expression based decorator for getting out the intermediate <code class="docutils literal notranslate"><span class="pre">jaxpr</span></code> object for inspection**</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-number-of-simple-dump-transformers">Define a number of simple, dump transformers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-files-and-pipeline-building">Configuration files and pipeline building</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-remarks-about-yaml">General remarks about yaml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#here-we-use-yaml-in-the-following-way">Here, we use yaml in the following way:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#config-node-structure">Config node structure:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-yaml-and-build-pipeline">Read yaml and build pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-individual-elements">Query individual elements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-structures-that-allow-for-more-complex-systems">Alternative structures that allow for more complex systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tentative-best-practices">Tentative best practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="concept-of-the-pipeline">
+<h1>Concept of the pipeline<a class="headerlink" href="#concept-of-the-pipeline" title="Link to this heading">#</a></h1>
+<section id="basic-ideas">
+<h2>Basic ideas<a class="headerlink" href="#basic-ideas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>rubix essentially implements a big data transformation pipeline.</p></li>
+<li><p>a pipeline is composed of nodes that are ordered in a list ordered by execution order (or more generally a DAG [not supported currently]). Each node is called a transformer.</p></li>
+<li><p>each step in this pipeline (i.e., each transformer) can ultimately be seen in itself as being composed of other, smaller transformers. This gives us a pattern that can be used to guide the implementation of transformers</p></li>
+<li><p>simple implementation in rubix.pipeline</p></li>
+</ul>
+</section>
+<section id="restrictions">
+<h2>Restrictions<a class="headerlink" href="#restrictions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>jax is pure functional. Anything that needs to be transformed with jax has to be a pure function.
+Any stuff that comes from the environment must be explicitly copied into the function or be bound to it such that the internal state is of the function is self-contained.</p></li>
+<li><p>It’s irrelevant what builds these pure functions. Therefore, we use a factory pattern to do all configuration work like reading files, pulling stuff from the net, providing any function arguments to be used in the pipeline and so on. A factory then produces a pure function that contains all the data we need as static arguments and retains only the stuff it computes on as tracable arguments.</p></li>
+<li><p>we can leverage <a class="reference external" href="https://jax.readthedocs.io/en/latest/_autosummary/jax.tree_util.Partial.html"><code class="docutils literal notranslate"><span class="pre">jax.tree_util.Partial</span></code></a> for this, which works like <code class="docutils literal notranslate"><span class="pre">functools.partial</span></code> but is compatible with jax transformations. Note that stateful objects can still be used internally as long as no stuff from an outer scope (that may change over time) is read or written. This is the user’s responsibility</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">make_jaxpr</span>
+<span class="kn">from</span> <span class="nn">jax.tree_util</span> <span class="kn">import</span> <span class="n">Partial</span>
+<span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">jit</span><span class="p">,</span> <span class="n">grad</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rubix.pipeline</span> <span class="kn">import</span> <span class="n">linear_pipeline</span> <span class="k">as</span> <span class="n">ltp</span>
+<span class="kn">from</span> <span class="nn">rubix.pipeline</span> <span class="kn">import</span> <span class="n">transformer</span> <span class="k">as</span> <span class="n">rtr</span>
+<span class="kn">from</span> <span class="nn">rubix.utils</span> <span class="kn">import</span> <span class="n">read_yaml</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-some-simple-decorator-for-function-configuration">
+<h2>Build some simple decorator for function configuration<a class="headerlink" href="#build-some-simple-decorator-for-function-configuration" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>leverages jax.tree_util.Partial</p></li>
+<li><p>builds a partial object to which jax transformations can be applied</p></li>
+<li><p>three cases:</p>
+<ul>
+<li><p>build the pure function object: you have to take care about static args/kwargs yourself upon calling jit. The decorator only builds the function object</p></li>
+<li><p>jit it right away: the usual. here you can tell it which args/kwargs to trace or not with the <code class="docutils literal notranslate"><span class="pre">static_args</span></code> and <code class="docutils literal notranslate"><span class="pre">static_kwargs</span></code> keyword arguments</p></li>
+<li><p>build expression: mainly to check what comes out of the thing at the end of for intermediate steps. can build a jax expression (wiht no arguments) or a jax core expression (when arguments are given as well). Note that for some reasone, <code class="docutils literal notranslate"><span class="pre">jax.make_jaxpr</span></code> does not have <code class="docutils literal notranslate"><span class="pre">static_argnames</span></code> like <code class="docutils literal notranslate"><span class="pre">jit</span></code> does.</p></li>
+</ul>
+</li>
+<li><p>With these, we can configure our pipeline transformers.</p></li>
+<li><p>Not entirely sure right now which are useful or needed</p></li>
+<li><p>these decorators/factory functions live in <code class="docutils literal notranslate"><span class="pre">rubix.pipeline.transformer</span></code></p></li>
+</ul>
+<p><strong>simple transformer decorator that binds function to arguments</strong></p>
+<p>this shows the basic implementation, they are available under <code class="docutils literal notranslate"><span class="pre">rubix.pipeline.transformer</span></code> in the package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bound_transformer</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    bound_transformer  Create a jax.Partial function from an input</span>
+<span class="sd">    function and given arguments and keyword arguments.</span>
+<span class="sd">    The user must take care that arguments are bound starting from the first,</span>
+<span class="sd">    i.e., leftmost. If specific arguments should be bound using keyword</span>
+<span class="sd">    arguments may be advisable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">transformer_wrap</span><span class="p">(</span><span class="n">kernel</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Partial</span><span class="p">(</span>
+            <span class="n">deepcopy</span><span class="p">(</span><span class="n">kernel</span><span class="p">),</span> <span class="o">*</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="p">)</span>  <span class="c1"># deepcopy to avoid context dependency</span>
+
+    <span class="k">return</span> <span class="n">transformer_wrap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@bound_transformer</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">k</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jax.tree_util.Partial
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">addjit</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">addjit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([14.14, 12.14, 10.14], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="compiling-transformer-to-jit-individual-elements-and-bind-them-to-traceable-partial-arguments">
+<h3>Compiling transformer to jit individual elements and bind them to traceable partial arguments<a class="headerlink" href="#compiling-transformer-to-jit-individual-elements-and-bind-them-to-traceable-partial-arguments" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>can be used for the final pipeline or for intermediate steps during debug or whatever</p></li>
+<li><p>combines a <code class="docutils literal notranslate"><span class="pre">Partial</span></code> to bind arguments that is then jitted with static args and kwargs. However, bound args and kwargs can <strong>NOT</strong> be static at the same time. In principle, we would want a partial of a jit here, which kind of defeats the purpose of the jit because of overhead of the wrapper?</p></li>
+<li><p>A solution to this would yield a configurable jit factory, essentially.</p></li>
+<li><p>I am not entirely sure why the below works the way it does</p></li>
+<li><p>not even entirely sure it is useful at all…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compiled_transformer</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="n">static_args</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="n">static_kwargs</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">transformer_wrap</span><span class="p">(</span><span class="n">kernel</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="n">jit</span><span class="p">(</span>
+            <span class="n">Partial</span><span class="p">(</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">kernel</span><span class="p">),</span> <span class="o">*</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)),</span>
+            <span class="n">static_argnums</span><span class="o">=</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">static_args</span><span class="p">),</span>
+            <span class="n">static_argnames</span><span class="o">=</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">static_kwargs</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">transformer_wrap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@compiled_transformer</span><span class="p">(</span>
+    <span class="n">z</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">k</span><span class="o">=-</span><span class="mf">3.14</span><span class="p">,</span>
+    <span class="n">static_kwargs</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">cond_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">k</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;PjitFunction of jax.tree_util.Partial(&lt;function cond_add at 0x11fda5440&gt;, z=5, k=-3.14)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([7.8599997, 5.8599997, 3.86     ], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cond_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">k</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>use on predefined functions without the decorator syntax</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add_plus</span> <span class="o">=</span> <span class="n">compiled_transformer</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">static_kwargs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;k&quot;</span><span class="p">])(</span><span class="n">cond_add</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add_plus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;PjitFunction of jax.tree_util.Partial(&lt;function cond_add at 0x11fda6840&gt;, z=5)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add_plus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mf">3.14</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([7.8599997, 5.8599997, 3.86     ], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problem</strong>: the <code class="docutils literal notranslate"><span class="pre">compiled_transformer</span></code> decorator cannot make args or kwargs static that are bound to the function, i.e., configured parameters are not static here. This only works if the entire pipeline is compiled after assembling it. Not sure how to fix that at the moment, if at all</p>
+</section>
+<section id="expression-based-decorator-for-getting-out-the-intermediate-jaxpr-object-for-inspection">
+<h3>Expression based decorator for getting out the intermediate <code class="docutils literal notranslate"><span class="pre">jaxpr</span></code> object for inspection**<a class="headerlink" href="#expression-based-decorator-for-getting-out-the-intermediate-jaxpr-object-for-inspection" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">make_jaxpr</span></code> does not support kwargs. god knows why?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expression_transformer</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="n">static_args</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[],</span>
+<span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">transformer_wrap</span><span class="p">(</span><span class="n">kernel</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">make_jaxpr</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="n">static_args</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">make_jaxpr</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="n">static_args</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">transformer_wrap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@expression_transformer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="n">static_args</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">cond_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">k</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ <span class=" -Color -Color-Bold -Color-Bold-Blue">lambda </span>; a<span class=" -Color -Color-Magenta">:f32[3]</span> b<span class=" -Color -Color-Magenta">:f32[3]</span>. <span class=" -Color -Color-Bold -Color-Bold-Blue">let</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">    </span>c<span class=" -Color -Color-Magenta">:f32[3]</span> = add a b
+    d<span class=" -Color -Color-Magenta">:f32[3]</span> = add c 5.0
+    e<span class=" -Color -Color-Magenta">:f32[3]</span> = add d 6.28000020980835
+  <span class=" -Color -Color-Bold -Color-Bold-Blue">in </span>(e,) }
+</pre></div>
+</div>
+</div>
+</div>
+<p>make sure to use the right <code class="docutils literal notranslate"><span class="pre">static_args</span></code> when doing control flow, or use jax/lax primitives</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@expression_transformer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">,</span> <span class="n">static_args</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">cond_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">k</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ <span class=" -Color -Color-Bold -Color-Bold-Blue">lambda </span>; a<span class=" -Color -Color-Magenta">:f32[3]</span> b<span class=" -Color -Color-Magenta">:f32[3]</span> c<span class=" -Color -Color-Magenta">:i32[]</span>. <span class=" -Color -Color-Bold -Color-Bold-Blue">let</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">    </span>d<span class=" -Color -Color-Magenta">:f32[3]</span> = add a b
+    e<span class=" -Color -Color-Magenta">:f32[]</span> = convert_element_type[new_dtype=float32 weak_type=False] c
+    f<span class=" -Color -Color-Magenta">:f32[3]</span> = add d e
+    g<span class=" -Color -Color-Magenta">:f32[3]</span> = add f -3.140000104904175
+  <span class=" -Color -Color-Bold -Color-Bold-Blue">in </span>(g,) }
+</pre></div>
+</div>
+</div>
+</div>
+<p>without giving arguments you get out a function that produces an expression when arguments are added</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@expression_transformer</span><span class="p">(</span><span class="n">static_args</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">cond_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">k</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function jax.make_jaxpr(cond_add)(x, y, z: float = 0, k: float = 0)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cond_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">2.71</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ <span class=" -Color -Color-Bold -Color-Bold-Blue">lambda </span>; a<span class=" -Color -Color-Magenta">:f32[3]</span> b<span class=" -Color -Color-Magenta">:f32[3]</span>. <span class=" -Color -Color-Bold -Color-Bold-Blue">let</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">    </span>c<span class=" -Color -Color-Magenta">:f32[3]</span> = add a b
+    d<span class=" -Color -Color-Magenta">:f32[3]</span> = add c 3.0
+    e<span class=" -Color -Color-Magenta">:f32[3]</span> = add d 5.420000076293945
+  <span class=" -Color -Color-Bold -Color-Bold-Blue">in </span>(e,) }
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-a-number-of-simple-dump-transformers">
+<h3>Define a number of simple, dump transformers<a class="headerlink" href="#define-a-number-of-simple-dump-transformers" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>we pretend that their second value is something we want to configure from the start and hence it should not be traced</p></li>
+<li><p>we can use the above decorators to bind their second arg to something we know</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">s</span>
+
+
+<span class="k">def</span> <span class="nf">mult</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">m</span>
+
+
+<span class="k">def</span> <span class="nf">div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">d</span>
+
+
+<span class="k">def</span> <span class="nf">sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="configuration-files-and-pipeline-building">
+<h2>Configuration files and pipeline building<a class="headerlink" href="#configuration-files-and-pipeline-building" title="Link to this heading">#</a></h2>
+<section id="general-remarks-about-yaml">
+<h3>General remarks about yaml<a class="headerlink" href="#general-remarks-about-yaml" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>yaml format: dictionary</p></li>
+<li><p>inside the dictionary one can arbitrarily nest lists, dicts.</p></li>
+<li><p>yaml is customizable for node formats that are not provided by default, or for reading in types. Look up yaml-tags for more.</p></li>
+<li><p>there’s yaml libraries for pretty much all common languages</p></li>
+</ul>
+</section>
+<section id="here-we-use-yaml-in-the-following-way">
+<h3>Here, we use yaml in the following way:<a class="headerlink" href="#here-we-use-yaml-in-the-following-way" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>the config file builds an adjacency list of a DAG essentially, but currently the design is limited to only one child per node =&gt; linear pipelines only, no branching</p></li>
+<li><p>consequently, the build algorithm is limited to linear pipelines for the moment. Both must evolve together.</p></li>
+<li><p>while a more general abstract base class is provided, we only implement a linear pipeline class <code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline</span></code> at the moment</p></li>
+<li><p>the essential part is the <code class="docutils literal notranslate"><span class="pre">Transformers</span></code> node of the config. this is the actual DAG adjacency list. This needs to adhere to the format outlined below.</p></li>
+<li><p>you can add other nodes to configure other parts of your system: data directories and so on.</p></li>
+<li><p>The starting point is always defined by a node that does not depend on another node.</p></li>
+<li><p>The stop point is just the last element in the pipeline</p></li>
+</ul>
+<section id="config-node-structure">
+<h4>Config node structure:<a class="headerlink" href="#config-node-structure" title="Link to this heading">#</a></h4>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name_of_pipeline_step</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name_of_function to use for this step</span>
+
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name_of_step_immediatelly_prior_in_pipeline</span><span class="w"> </span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="c1"># arguments to the transformer functions that should be bound to it</span>
+
+<span class="w">        </span><span class="nt">argument1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value1</span><span class="w"> </span>
+
+<span class="w">        </span><span class="nt">argument2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value2</span><span class="w"> </span>
+
+<span class="w">        </span><span class="nt">argumentN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">valueN</span>
+</pre></div>
+</div>
+<p>the arguments in <code class="docutils literal notranslate"><span class="pre">args</span></code> will be used to create the <code class="docutils literal notranslate"><span class="pre">Partial</span></code> object, using the transformer decorators above.</p>
+<p><strong>Example</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">B</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sub</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span>
+<span class="w">    </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">s</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">C</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">add</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">    </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">s</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">C</span></code> is the starting node, i.e., the first function in the pipeline.
+Whatever you do before that with your data does not concern the pipeline and hence has no influence on differentiability etc.</p>
+<p>For a full example, see the <code class="docutils literal notranslate"><span class="pre">demo.yml</span></code> file.</p>
+</section>
+</section>
+<section id="read-yaml-and-build-pipeline">
+<h3>Read yaml and build pipeline<a class="headerlink" href="#read-yaml-and-build-pipeline" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">read_yaml</span></code> is available from <code class="docutils literal notranslate"><span class="pre">rubix.utils.py</span></code> and is very simple</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">read_cfg</span> <span class="o">=</span> <span class="n">read_yaml</span><span class="p">(</span><span class="s2">&quot;./demo.yml&quot;</span><span class="p">)</span>  <span class="c1"># implemented in utils</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">read_cfg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Transformers&#39;: {&#39;A&#39;: {&#39;name&#39;: &#39;add&#39;,
+   &#39;depends_on&#39;: &#39;B&#39;,
+   &#39;args&#39;: [],
+   &#39;kwargs&#39;: {&#39;s&#39;: 3.0}},
+  &#39;X&#39;: {&#39;name&#39;: &#39;mult&#39;, &#39;depends_on&#39;: &#39;A&#39;, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;m&#39;: 3}},
+  &#39;Z&#39;: {&#39;name&#39;: &#39;div&#39;, &#39;depends_on&#39;: &#39;X&#39;, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;d&#39;: 4}},
+  &#39;B&#39;: {&#39;name&#39;: &#39;sub&#39;, &#39;depends_on&#39;: &#39;C&#39;, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;s&#39;: 2}},
+  &#39;C&#39;: {&#39;name&#39;: &#39;add&#39;, &#39;depends_on&#39;: None, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;s&#39;: 4}}}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">read_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">read_cfg</span><span class="p">[</span><span class="s2">&quot;Transformers&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;A&#39;: {&#39;name&#39;: &#39;add&#39;, &#39;depends_on&#39;: &#39;B&#39;, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;s&#39;: 3.0}},
+ &#39;X&#39;: {&#39;name&#39;: &#39;mult&#39;, &#39;depends_on&#39;: &#39;A&#39;, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;m&#39;: 3}},
+ &#39;Z&#39;: {&#39;name&#39;: &#39;div&#39;, &#39;depends_on&#39;: &#39;X&#39;, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;d&#39;: 4}},
+ &#39;B&#39;: {&#39;name&#39;: &#39;sub&#39;, &#39;depends_on&#39;: &#39;C&#39;, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;s&#39;: 2}},
+ &#39;C&#39;: {&#39;name&#39;: &#39;add&#39;, &#39;depends_on&#39;: None, &#39;args&#39;: [], &#39;kwargs&#39;: {&#39;s&#39;: 4}}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">read_cfg</span><span class="p">[</span><span class="s2">&quot;Transformers&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<p>Transformers need to be registered upon creation. If you have fixed ones or many of them, maybe it makes sense to write a factory function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span> <span class="o">=</span> <span class="n">ltp</span><span class="o">.</span><span class="n">LinearTransformerPipeline</span><span class="p">(</span><span class="n">read_cfg</span><span class="p">,</span> <span class="p">[</span><span class="n">add</span><span class="p">,</span> <span class="n">mult</span><span class="p">,</span> <span class="n">div</span><span class="p">,</span> <span class="n">sub</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span><span class="o">.</span><span class="n">transformers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;add&#39;: &lt;function __main__.add(x, s: float)&gt;,
+ &#39;mult&#39;: &lt;function __main__.mult(x, m: float)&gt;,
+ &#39;div&#39;: &lt;function __main__.div(x, d: float)&gt;,
+ &#39;sub&#39;: &lt;function __main__.sub(x, s: float)&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">transformers</span></code> member gives us a dict of <code class="docutils literal notranslate"><span class="pre">name:</span> <span class="pre">function</span></code> pairs for the transformers
+This currently has to be done before the assembly of the pipeline, or the pipeline will not know what to assemble it from</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span><span class="o">.</span><span class="n">assemble</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span><span class="o">.</span><span class="n">pipeline</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;C&#39;: jax.tree_util.Partial(&lt;function add at 0x11fda4ae0&gt;, s=4),
+ &#39;B&#39;: jax.tree_util.Partial(&lt;function sub at 0x11fda7740&gt;, s=2),
+ &#39;A&#39;: jax.tree_util.Partial(&lt;function add at 0x11fda4ae0&gt;, s=3.0),
+ &#39;X&#39;: jax.tree_util.Partial(&lt;function mult at 0x11fda62a0&gt;, m=3),
+ &#39;Z&#39;: jax.tree_util.Partial(&lt;function div at 0x11fda79c0&gt;, d=4)}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a list of jax <code class="docutils literal notranslate"><span class="pre">Partial</span></code>s to which we can apply, assuming the individual elements are well behaved, all jax transformations in principle. If this is true for the elements, then it is true for the composition as long as the function we use for composition is pure functional itself</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">jnp</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The expression that a pipeline builds is a partial object that is bound to the pipeline</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span><span class="o">.</span><span class="n">expression</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jax.tree_util.Partial(&lt;function LinearTransformerPipeline.build_expression.&lt;locals&gt;.expr at 0x11fda7880&gt;, pipeline=[jax.tree_util.Partial(&lt;function add at 0x11fda4ae0&gt;, s=4), jax.tree_util.Partial(&lt;function sub at 0x11fda7740&gt;, s=2), jax.tree_util.Partial(&lt;function add at 0x11fda4ae0&gt;, s=3.0), jax.tree_util.Partial(&lt;function mult at 0x11fda62a0&gt;, m=3), jax.tree_util.Partial(&lt;function div at 0x11fda79c0&gt;, d=4)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>… it has the same signature as the first function in the pipeline.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="n">compile_expression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;PjitFunction of jax.tree_util.Partial(&lt;function LinearTransformerPipeline.build_expression.&lt;locals&gt;.expr at 0x11fda7880&gt;, pipeline=[jax.tree_util.Partial(&lt;function add at 0x11fda4ae0&gt;, s=4), jax.tree_util.Partial(&lt;function sub at 0x11fda7740&gt;, s=2), jax.tree_util.Partial(&lt;function add at 0x11fda4ae0&gt;, s=3.0), jax.tree_util.Partial(&lt;function mult at 0x11fda62a0&gt;, m=3), jax.tree_util.Partial(&lt;function div at 0x11fda79c0&gt;, d=4)])&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([6.  , 5.25, 4.5 ], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">div</span><span class="p">(</span><span class="n">mult</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="n">sub</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">m</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([6.  , 5.25, 4.5 ], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>… output’s the same. yay :)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="n">get_jaxpr</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ <span class=" -Color -Color-Bold -Color-Bold-Blue">lambda </span>; a<span class=" -Color -Color-Magenta">:f32[3]</span>. <span class=" -Color -Color-Bold -Color-Bold-Blue">let</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">    </span>b<span class=" -Color -Color-Magenta">:f32[3]</span> = add a 4.0
+    c<span class=" -Color -Color-Magenta">:f32[3]</span> = sub b 2.0
+    d<span class=" -Color -Color-Magenta">:f32[3]</span> = add c 3.0
+    e<span class=" -Color -Color-Magenta">:f32[3]</span> = mul d 3.0
+    f<span class=" -Color -Color-Magenta">:f32[3]</span> = div e 4.0
+  <span class=" -Color -Color-Bold -Color-Bold-Blue">in </span>(f,) }
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jax._src.core.ClosedJaxpr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func_manual</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">div</span><span class="p">(</span><span class="n">mult</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="n">sub</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">m</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span> <span class="n">d</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">make_jaxpr</span><span class="p">(</span><span class="n">func_manual</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ <span class=" -Color -Color-Bold -Color-Bold-Blue">lambda </span>; a<span class=" -Color -Color-Magenta">:f32[3]</span>. <span class=" -Color -Color-Bold -Color-Bold-Blue">let</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">    </span>b<span class=" -Color -Color-Magenta">:f32[3]</span> = add a 4.0
+    c<span class=" -Color -Color-Magenta">:f32[3]</span> = sub b 2.0
+    d<span class=" -Color -Color-Magenta">:f32[3]</span> = add c 3.0
+    e<span class=" -Color -Color-Magenta">:f32[3]</span> = mul d 3.0
+    f<span class=" -Color -Color-Magenta">:f32[3]</span> = div e 4.0
+  <span class=" -Color -Color-Bold -Color-Bold-Blue">in </span>(f,) }
+</pre></div>
+</div>
+</div>
+</div>
+<p>… expressions are too, because JAX is smart enough to trace across loops and we don’t have to mess with expression composition ourselves. We hence should end up with something that’s jax transformable if its elements are jax transformable. yay :)</p>
+<p>just for completeness, we can mess a bit more with the expression stuff</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jax</span><span class="o">.</span><span class="n">jacfwd</span><span class="p">(</span><span class="n">tp</span><span class="o">.</span><span class="n">compile_expression</span><span class="p">())(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[0.75, 0.  , 0.  ],
+       [0.  , 0.75, 0.  ],
+       [0.  , 0.  , 0.75]], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jax</span><span class="o">.</span><span class="n">jacrev</span><span class="p">(</span><span class="n">tp</span><span class="o">.</span><span class="n">compile_expression</span><span class="p">())(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[0.75, 0.  , 0.  ],
+       [0.  , 0.75, 0.  ],
+       [0.  , 0.  , 0.75]], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jax</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">tp</span><span class="o">.</span><span class="n">compile_expression</span><span class="p">())(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Array([[[0., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]],
+
+       [[0., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]],
+
+       [[0., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]]], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="query-individual-elements">
+<h3>Query individual elements<a class="headerlink" href="#query-individual-elements" title="Link to this heading">#</a></h3>
+<p>this is mainly useful for debugging</p>
+<p>compile or get expressions for individual elements</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span><span class="o">.</span><span class="n">compile_element</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;PjitFunction of jax.tree_util.Partial(_HashableCallableShim(jax.tree_util.Partial(&lt;function add at 0x11fda4ae0&gt;, s=3.0)))&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp</span><span class="o">.</span><span class="n">get_jaxpr_for_element</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ <span class=" -Color -Color-Bold -Color-Bold-Blue">lambda </span>; a<span class=" -Color -Color-Magenta">:f32[3]</span>. <span class=" -Color -Color-Bold -Color-Bold-Blue">let</span> b<span class=" -Color -Color-Magenta">:f32[3]</span> = add a 3.0 <span class=" -Color -Color-Bold -Color-Bold-Blue">in </span>(b,) }
+</pre></div>
+</div>
+</div>
+</div>
+<p>when building an expression with no arguments, a function is returned that creates an expression once args are added</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">tp</span><span class="o">.</span><span class="n">get_jaxpr_for_element</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function jax.&lt;unnamed function&gt;(x, *, s: float = 3.0)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{ <span class=" -Color -Color-Bold -Color-Bold-Blue">lambda </span>; a<span class=" -Color -Color-Magenta">:f32[3]</span>. <span class=" -Color -Color-Bold -Color-Bold-Blue">let</span> b<span class=" -Color -Color-Magenta">:f32[3]</span> = add a 3.0 <span class=" -Color -Color-Bold -Color-Bold-Blue">in </span>(b,) }
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="alternative-structures-that-allow-for-more-complex-systems">
+<h2>Alternative structures that allow for more complex systems<a class="headerlink" href="#alternative-structures-that-allow-for-more-complex-systems" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>allow to inject new data at intermediate steps: multiple starting points: transforms the pipeline into an inverted tree.</p></li>
+<li><p>allow for a step to depend on multiple other steps: transforms the pipeline into a directed acyclic graph. Common structure in more general data processing systems.</p></li>
+</ul>
+<p>=&gt; if possible use something simple like <code class="docutils literal notranslate"><span class="pre">Partial</span></code> to accomplish this</p>
+</section>
+<section id="tentative-best-practices">
+<h2>Tentative best practices<a class="headerlink" href="#tentative-best-practices" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>think in small steps: a more granular pipeline is easier to write in a pure functional style, easier to reason about and probably also better to optimize.</p></li>
+<li><p>A more granular system also is easier to test and extend</p></li>
+<li><p>ideally write the pipeline such that it can be compiled all at once with <code class="docutils literal notranslate"><span class="pre">compile_expression</span></code>.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>pipeline produces same jax code as handwritten stuff. This seems encouraging.</p></li>
+<li><p>at which points do we still need to ensure pure functional behavior?</p></li>
+<li><p>how will we enforce transformer compatibility</p></li>
+<li><p>this is a pathologically simple case, hence not representative for real-world scenarios</p></li>
+<li><p>when does it break?</p></li>
+<li><p>what use cases are not covered?</p></li>
+<li><p>what else do you need?</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="create_rubix_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Create RUBIX data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rubix_pipeline_single_function.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RUBIX pipeline</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-ideas">Basic ideas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restrictions">Restrictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-some-simple-decorator-for-function-configuration">Build some simple decorator for function configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-transformer-to-jit-individual-elements-and-bind-them-to-traceable-partial-arguments">Compiling transformer to jit individual elements and bind them to traceable partial arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expression-based-decorator-for-getting-out-the-intermediate-jaxpr-object-for-inspection">Expression based decorator for getting out the intermediate <code class="docutils literal notranslate"><span class="pre">jaxpr</span></code> object for inspection**</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-number-of-simple-dump-transformers">Define a number of simple, dump transformers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-files-and-pipeline-building">Configuration files and pipeline building</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-remarks-about-yaml">General remarks about yaml</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#here-we-use-yaml-in-the-following-way">Here, we use yaml in the following way:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#config-node-structure">Config node structure:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-yaml-and-build-pipeline">Read yaml and build pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#query-individual-elements">Query individual elements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-structures-that-allow-for-more-complex-systems">Alternative structures that allow for more complex systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tentative-best-practices">Tentative best practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ufuk, Tobias, Anna Lena
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Ufuk, Tobias, Anna Lena.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

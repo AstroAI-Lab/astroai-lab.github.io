@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rubix.spectra.ifu &#8212; rubix 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/rubix/spectra/ifu';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">rubix 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">RUBIX documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Welcome to RUBIX’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../versions.html">Code versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/create_rubix_data.html">Create RUBIX data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/pipeline_demo.html">Concept of the pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/rubix_pipeline_single_function.html">RUBIX pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/rubix_pipeline_stepwise.html">RUBIX pipeline in steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/cosmology.html">Cosmology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/telescope.html">Telescopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/spaxel_assignment.html">Spaxel assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/ssp_template.html">Load supported SSP templates</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/psf.html">The point spread function</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../rubix.core.html">rubix.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rubix.cosmology.html">rubix.cosmology package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../rubix.galaxy.html">rubix.galaxy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../rubix.galaxy.input_handler.html">rubix.galaxy.input_handler package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rubix.pipeline.html">rubix.pipeline package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../rubix.spectra.html">rubix.spectra package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../rubix.spectra.ssp.html">rubix.spectra.ssp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../rubix.telescope.html">rubix.telescope package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../rubix.telescope.lsf.html">rubix.telescope.lsf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../rubix.telescope.psf.html">rubix.telescope.psf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../rubix.telescope.noise.html">rubix.telescope.noise package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rubix.utils.html">utils</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ufuk-cakir/rubix" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for rubix.spectra.ifu</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+<span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">from</span> <span class="nn">rubix</span> <span class="kn">import</span> <span class="n">config</span>
+<span class="kn">from</span> <span class="nn">jaxtyping</span> <span class="kn">import</span> <span class="n">Float</span><span class="p">,</span> <span class="n">Array</span>
+
+<span class="kn">from</span> <span class="nn">jaxtyping</span> <span class="kn">import</span> <span class="n">Array</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">jaxtyped</span>
+<span class="kn">from</span> <span class="nn">beartype</span> <span class="kn">import</span> <span class="n">beartype</span> <span class="k">as</span> <span class="n">typechecker</span>
+
+
+<div class="viewcode-block" id="convert_luminoisty_to_flux">
+<a class="viewcode-back" href="../../../rubix.spectra.html#rubix.spectra.ifu.convert_luminoisty_to_flux">[docs]</a>
+<span class="nd">@jaxtyped</span><span class="p">(</span><span class="n">typechecker</span><span class="o">=</span><span class="n">typechecker</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">convert_luminoisty_to_flux</span><span class="p">(</span>
+    <span class="n">luminosity</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">],</span>
+    <span class="n">observation_lum_dist</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">],</span>
+    <span class="n">observation_z</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">pixel_size</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">CONSTANTS</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;constants&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert luminosity to flux in units erg/s/cm^2/Angstrom as observed by the telescope.</span>
+<span class="sd">    The luminosity is object specific, the flux depends on the distance to the object, the redshift, and the pixel size of the telescope.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        luminosity (array-like): The luminosity of the object.</span>
+<span class="sd">        observation_lum_dist (float): The luminosity distance to the object in Mpc.</span>
+<span class="sd">        observation_z (float): The redshift of the object.</span>
+<span class="sd">        pixel_size (float): The pixel size of the telescope in cm.</span>
+<span class="sd">        CONSTANTS (dict, optional): A dictionary containing the constants used in the calculation. Defaults to config[&quot;constants&quot;].</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The flux of the object in units erg/s/cm^2/Angstrom as observed by the telescope (array-like).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CONST</span> <span class="o">=</span> <span class="n">CONSTANTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;LSOL_TO_ERG&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="n">CONSTANTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;MPC_TO_CM&quot;</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">FACTOR</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">CONST</span>
+        <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">observation_lum_dist</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">observation_z</span><span class="p">)</span>
+        <span class="o">/</span> <span class="n">pixel_size</span>
+    <span class="p">)</span>
+    <span class="n">spectral_dist</span> <span class="o">=</span> <span class="n">luminosity</span> <span class="o">*</span> <span class="n">FACTOR</span>
+    <span class="k">return</span> <span class="n">spectral_dist</span></div>
+
+
+
+<div class="viewcode-block" id="cosmological_doppler_shift">
+<a class="viewcode-back" href="../../../rubix.spectra.html#rubix.spectra.ifu.cosmological_doppler_shift">[docs]</a>
+<span class="nd">@jaxtyped</span><span class="p">(</span><span class="n">typechecker</span><span class="o">=</span><span class="n">typechecker</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">cosmological_doppler_shift</span><span class="p">(</span>
+    <span class="n">z</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">wavelength</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_bins&quot;</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_bins&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the cosmological Doppler shift of a wavelength.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        z (float): The redshift.</span>
+<span class="sd">        wavelength (array-like): The wavelength in Angstrom.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The Doppler shifted wavelength in Angstrom.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculate the cosmological Doppler shift of a wavelength</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">wavelength</span></div>
+
+
+
+<div class="viewcode-block" id="calculate_diff">
+<a class="viewcode-back" href="../../../rubix.spectra.html#rubix.spectra.ifu.calculate_diff">[docs]</a>
+<span class="nd">@jaxtyped</span><span class="p">(</span><span class="n">typechecker</span><span class="o">=</span><span class="n">typechecker</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calculate_diff</span><span class="p">(</span>
+    <span class="n">vec</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">],</span> <span class="n">pad_with_zero</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the difference between each element in a vector.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        vec (array-like): The input vector.</span>
+<span class="sd">        pad_with_zero (bool, optional): Whether to prepend the first element of the vector to the differences. Default is True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The differences between each element in the vector (array-like).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">pad_with_zero</span><span class="p">:</span>
+        <span class="n">differences</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">differences</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">differences</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">_get_velocity_component_single</span><span class="p">(</span><span class="n">vec</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">],</span> <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">:</span>
+    <span class="c1"># Check that vec is of size 3</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">vec</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected vector of size 3, but got </span><span class="si">{</span><span class="n">vec</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2"> is not a valid direction. Supported directions are &#39;x&#39;, &#39;y&#39;, or &#39;z&#39;.&quot;</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_velocity_component_multiple</span><span class="p">(</span>
+    <span class="n">vecs</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;n_particles 3&quot;</span><span class="p">],</span> <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;n_particles 1&quot;</span><span class="p">]:</span>
+    <span class="c1"># Check that vecs has shape (n_particles, 3)</span>
+    <span class="k">if</span> <span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Expected vectors of shape (n_particles, 3), but got </span><span class="si">{</span><span class="n">vecs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;x&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">vecs</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2"> is not a valid direction. Supported directions are &#39;x&#39;, &#39;y&#39;, or &#39;z&#39;.&quot;</span>
+        <span class="p">)</span>
+
+
+<div class="viewcode-block" id="get_velocity_component">
+<a class="viewcode-back" href="../../../rubix.spectra.html#rubix.spectra.ifu.get_velocity_component">[docs]</a>
+<span class="nd">@jaxtyped</span><span class="p">(</span><span class="n">typechecker</span><span class="o">=</span><span class="n">typechecker</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_velocity_component</span><span class="p">(</span>
+    <span class="n">vec</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;3 ...&quot;</span><span class="p">],</span> <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function returns the velocity component in a given direction.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        vec (array-like): The velocity vector.</span>
+<span class="sd">        direction (str): The direction in which to get the velocity component. Supported directions are &#39;x&#39;, &#39;y&#39;, or &#39;z&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The velocity component in the given direction (array-like).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">jax</span><span class="o">.</span><span class="n">Array</span><span class="p">)</span> <span class="ow">and</span> <span class="n">vec</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_get_velocity_component_multiple</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">jax</span><span class="o">.</span><span class="n">Array</span><span class="p">)</span> <span class="ow">and</span> <span class="n">vec</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_get_velocity_component_single</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Got wrong shapes. Expected vec.ndim =2 or vec.ndim=1, but got vec.ndim = </span><span class="si">{</span><span class="n">vec</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">_velocity_doppler_shift_single</span><span class="p">(</span>
+    <span class="n">wavelength</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_bins&quot;</span><span class="p">],</span>
+    <span class="n">velocity</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">],</span>
+    <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="n">SPEED_OF_LIGHT</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;constants&quot;</span><span class="p">][</span><span class="s2">&quot;SPEED_OF_LIGHT&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_bins&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the Doppler shift of a wavelength due to a velocity.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        wavelengt (array-like): The wavelength in Angstrom.</span>
+<span class="sd">        velocity (array-like): The velocity in km/s.</span>
+<span class="sd">        direction (str, optional): The direction in which the velocity acts. Default is &quot;y&quot;.</span>
+<span class="sd">        SPEED_OF_LIGHT (float, optional): The speed of light in km/s. Default is config[&quot;constants&quot;][&quot;SPEED_OF_LIGHT&quot;].</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The Doppler shifted wavelength in Angstrom (float).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="n">get_velocity_component</span><span class="p">(</span><span class="n">velocity</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
+    <span class="c1"># Calculate the Doppler shift of a wavelength due to a velocity</span>
+    <span class="k">return</span> <span class="n">wavelength</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">velocity</span> <span class="o">/</span> <span class="n">SPEED_OF_LIGHT</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="velocity_doppler_shift">
+<a class="viewcode-back" href="../../../rubix.spectra.html#rubix.spectra.ifu.velocity_doppler_shift">[docs]</a>
+<span class="nd">@jaxtyped</span><span class="p">(</span><span class="n">typechecker</span><span class="o">=</span><span class="n">typechecker</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">velocity_doppler_shift</span><span class="p">(</span>
+    <span class="n">wavelength</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">],</span>
+    <span class="n">velocity</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; * 3&quot;</span><span class="p">],</span>
+    <span class="n">direction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="n">SPEED_OF_LIGHT</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;constants&quot;</span><span class="p">][</span><span class="s2">&quot;SPEED_OF_LIGHT&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the Doppler shift of a wavelength due to a velocity.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        wavelength (array-like): The wavelength in Angstrom.</span>
+<span class="sd">        velocity (array-like): The velocity in km/s.</span>
+<span class="sd">        direction (str, optional): The direction in which the velocity acts. Default is &quot;y&quot;.</span>
+<span class="sd">        SPEED_OF_LIGHT (float, optional): The speed of light in km/s. Default is config[&quot;constants&quot;][&quot;SPEED_OF_LIGHT&quot;].</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The Doppler shifted wavelength in Angstrom (array-like).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Vmap the function to handle multiple velocities with the same wavelength</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">vmap</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">_velocity_doppler_shift_single</span><span class="p">(</span>
+            <span class="n">wavelength</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">SPEED_OF_LIGHT</span>
+        <span class="p">)</span>
+    <span class="p">)(</span><span class="n">velocity</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="resample_spectrum">
+<a class="viewcode-back" href="../../../rubix.spectra.html#rubix.spectra.ifu.resample_spectrum">[docs]</a>
+<span class="nd">@jaxtyped</span><span class="p">(</span><span class="n">typechecker</span><span class="o">=</span><span class="n">typechecker</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">resample_spectrum</span><span class="p">(</span>
+    <span class="n">initial_spectrum</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_bins_initial&quot;</span><span class="p">],</span>
+    <span class="n">initial_wavelength</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_bins_initial&quot;</span><span class="p">],</span>
+    <span class="n">target_wavelength</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_bins_target&quot;</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_bins_target&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resample a spectrum to the wavelength grid of a telescope.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        initial_spectrum (array-like): The initial spectrum.</span>
+<span class="sd">        initial_wavelength (array-like): The initial wavelength grid.</span>
+<span class="sd">        target_wavelength (array-like): The target wavelength grid.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The resampled spectrum (array-like).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get wavelengths inside the telescope range</span>
+    <span class="n">in_range_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">initial_wavelength</span> <span class="o">&gt;=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">target_wavelength</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span>
+        <span class="n">initial_wavelength</span> <span class="o">&lt;=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">target_wavelength</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">intrinsic_wave_diff</span> <span class="o">=</span> <span class="n">calculate_diff</span><span class="p">(</span><span class="n">initial_wavelength</span><span class="p">)</span> <span class="o">*</span> <span class="n">in_range_mask</span>
+
+    <span class="c1"># Get total luminsoity within the wavelength range</span>
+    <span class="n">total_lum</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">initial_spectrum</span> <span class="o">*</span> <span class="n">intrinsic_wave_diff</span><span class="p">)</span>
+
+    <span class="c1"># Interpolate the wavelegnth to the telescope grid</span>
+    <span class="n">particle_lum</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">target_wavelength</span><span class="p">,</span> <span class="n">initial_wavelength</span><span class="p">,</span> <span class="n">initial_spectrum</span><span class="p">)</span>
+    <span class="c1"># New total luminosity</span>
+    <span class="n">new_total_lum</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">particle_lum</span> <span class="o">*</span> <span class="n">calculate_diff</span><span class="p">(</span><span class="n">target_wavelength</span><span class="p">))</span>
+
+    <span class="c1"># Factor to conserve flux in the new spectrum</span>
+
+    <span class="n">scale_factor</span> <span class="o">=</span> <span class="n">total_lum</span> <span class="o">/</span> <span class="n">new_total_lum</span>
+    <span class="n">scale_factor</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span>
+        <span class="n">scale_factor</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="mf">0.0</span>
+    <span class="p">)</span>  <span class="c1"># Otherwise we get NaNs if new_total_lum is zero</span>
+    <span class="n">lum</span> <span class="o">=</span> <span class="n">particle_lum</span> <span class="o">*</span> <span class="n">scale_factor</span>
+    <span class="c1"># jax.debug.print(&quot;total_lum: {}&quot;, total_lum)</span>
+    <span class="c1"># jax.debug.print(&quot;new_total_lum: {}&quot;, new_total_lum)</span>
+    <span class="c1"># jax.debug.print(&quot;scale_factor: {}&quot;, scale_factor)</span>
+    <span class="c1"># jax.debug.print(&quot;resampled spectrum: {}&quot;, lum)</span>
+    <span class="c1"># jax.debug.print(&quot;intrinsic_wave_diff: {}&quot;, intrinsic_wave_diff)</span>
+    <span class="k">return</span> <span class="n">lum</span></div>
+
+
+
+<div class="viewcode-block" id="calculate_cube">
+<a class="viewcode-back" href="../../../rubix.spectra.html#rubix.spectra.ifu.calculate_cube">[docs]</a>
+<span class="nd">@jaxtyped</span><span class="p">(</span><span class="n">typechecker</span><span class="o">=</span><span class="n">typechecker</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">calculate_cube</span><span class="p">(</span>
+    <span class="n">spectra</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;n_stars n_wave_bins&quot;</span><span class="p">],</span>
+    <span class="n">spaxel_index</span><span class="p">:</span> <span class="n">Int</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot; n_stars&quot;</span><span class="p">],</span>
+    <span class="n">num_spaxels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s2">&quot;num_spaxels num_spaxels n_wave_bins&quot;</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the spectral data cube, which implies to sum up the spectra of all stars in each spaxel to get the spectral data cube.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        spectra (array-like): The spectra of all stars.</span>
+<span class="sd">        spaxel_index (array-like): The spaxel index of each star. This defines into which telescope pixel the star falls.</span>
+<span class="sd">        num_spaxels (int): The number of spaxels in one direction of the telescope aperture. The resulting number of telescope bins is `num_spaxels^2`. Assumes that the maximum value in `spaxel_index` does not exceed this value.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The spectral data cube in an array-like format with shape `(num_spaxels, num_spaxels, n_wave_bins)`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">datacube</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">segment_sum</span><span class="p">(</span><span class="n">spectra</span><span class="p">,</span> <span class="n">spaxel_index</span><span class="p">,</span> <span class="n">num_segments</span><span class="o">=</span><span class="n">num_spaxels</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">datacube</span> <span class="o">=</span> <span class="n">datacube</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">num_spaxels</span><span class="p">,</span> <span class="n">num_spaxels</span><span class="p">,</span> <span class="n">spectra</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">datacube</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ufuk, Tobias, Anna Lena
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Ufuk, Tobias, Anna Lena.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

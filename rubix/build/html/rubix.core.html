@@ -1,0 +1,1348 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rubix.core package &#8212; rubix 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rubix.core';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rubix.cosmology package" href="rubix.cosmology.html" />
+    <link rel="prev" title="The point spread function" href="notebooks/psf.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">rubix 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">RUBIX documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to RUBIX’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Code versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/create_rubix_data.html">Create RUBIX data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/pipeline_demo.html">Concept of the pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/rubix_pipeline_single_function.html">RUBIX pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/rubix_pipeline_stepwise.html">RUBIX pipeline in steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/cosmology.html">Cosmology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/telescope.html">Telescopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/spaxel_assignment.html">Spaxel assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/ssp_template.html">Load supported SSP templates</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/psf.html">The point spread function</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code documentation:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">rubix.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix.cosmology.html">rubix.cosmology package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rubix.galaxy.html">rubix.galaxy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rubix.galaxy.input_handler.html">rubix.galaxy.input_handler package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix.pipeline.html">rubix.pipeline package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rubix.spectra.html">rubix.spectra package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rubix.spectra.ssp.html">rubix.spectra.ssp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rubix.telescope.html">rubix.telescope package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.lsf.html">rubix.telescope.lsf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.psf.html">rubix.telescope.psf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.noise.html">rubix.telescope.noise package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix.utils.html">utils</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ufuk-cakir/rubix" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/rubix.core.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>rubix.core package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.cosmology">rubix.core.cosmology module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.cosmology.get_cosmology"><code class="docutils literal notranslate"><span class="pre">get_cosmology()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.data">rubix.core.data module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.Galaxy"><code class="docutils literal notranslate"><span class="pre">Galaxy</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.GasData"><code class="docutils literal notranslate"><span class="pre">GasData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.RubixData"><code class="docutils literal notranslate"><span class="pre">RubixData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.StarsData"><code class="docutils literal notranslate"><span class="pre">StarsData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.convert_to_rubix"><code class="docutils literal notranslate"><span class="pre">convert_to_rubix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.get_reshape_data"><code class="docutils literal notranslate"><span class="pre">get_reshape_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.get_rubix_data"><code class="docutils literal notranslate"><span class="pre">get_rubix_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.prepare_input"><code class="docutils literal notranslate"><span class="pre">prepare_input()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.reshape_array"><code class="docutils literal notranslate"><span class="pre">reshape_array()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.ifu">rubix.core.ifu module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_calculate_datacube"><code class="docutils literal notranslate"><span class="pre">get_calculate_datacube()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_calculate_spectra"><code class="docutils literal notranslate"><span class="pre">get_calculate_spectra()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_doppler_shift_and_resampling"><code class="docutils literal notranslate"><span class="pre">get_doppler_shift_and_resampling()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_resample_spectrum_pmap"><code class="docutils literal notranslate"><span class="pre">get_resample_spectrum_pmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_resample_spectrum_vmap"><code class="docutils literal notranslate"><span class="pre">get_resample_spectrum_vmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_scale_spectrum_by_mass"><code class="docutils literal notranslate"><span class="pre">get_scale_spectrum_by_mass()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_velocities_doppler_shift_vmap"><code class="docutils literal notranslate"><span class="pre">get_velocities_doppler_shift_vmap()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.lsf">rubix.core.lsf module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.lsf.get_convolve_lsf"><code class="docutils literal notranslate"><span class="pre">get_convolve_lsf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.noise">rubix.core.noise module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.noise.get_apply_noise"><code class="docutils literal notranslate"><span class="pre">get_apply_noise()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.pipeline">rubix.core.pipeline module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.pipeline.RubixPipeline"><code class="docutils literal notranslate"><span class="pre">RubixPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.pipeline.RubixPipeline.gradient"><code class="docutils literal notranslate"><span class="pre">RubixPipeline.gradient()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.pipeline.RubixPipeline.run"><code class="docutils literal notranslate"><span class="pre">RubixPipeline.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.psf">rubix.core.psf module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.psf.get_convolve_psf"><code class="docutils literal notranslate"><span class="pre">get_convolve_psf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.rotation">rubix.core.rotation module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.rotation.get_galaxy_rotation"><code class="docutils literal notranslate"><span class="pre">get_galaxy_rotation()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.ssp">rubix.core.ssp module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ssp.get_lookup_interpolation"><code class="docutils literal notranslate"><span class="pre">get_lookup_interpolation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ssp.get_lookup_interpolation_pmap"><code class="docutils literal notranslate"><span class="pre">get_lookup_interpolation_pmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ssp.get_lookup_interpolation_vmap"><code class="docutils literal notranslate"><span class="pre">get_lookup_interpolation_vmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ssp.get_ssp"><code class="docutils literal notranslate"><span class="pre">get_ssp()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.telescope">rubix.core.telescope module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.telescope.get_filter_particles"><code class="docutils literal notranslate"><span class="pre">get_filter_particles()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.telescope.get_spatial_bin_edges"><code class="docutils literal notranslate"><span class="pre">get_spatial_bin_edges()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.telescope.get_spaxel_assignment"><code class="docutils literal notranslate"><span class="pre">get_spaxel_assignment()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.telescope.get_telescope"><code class="docutils literal notranslate"><span class="pre">get_telescope()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rubix-core-package">
+<h1>rubix.core package<a class="headerlink" href="#rubix-core-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-rubix.core.cosmology">
+<span id="rubix-core-cosmology-module"></span><h2>rubix.core.cosmology module<a class="headerlink" href="#module-rubix.core.cosmology" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.cosmology.get_cosmology">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.cosmology.</span></span><span class="sig-name descname"><span class="pre">get_cosmology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/cosmology.html#get_cosmology"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.cosmology.get_cosmology" title="Link to this definition">#</a></dt>
+<dd><p>Get the cosmology from the configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> – Configuration dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RubixCosmology</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span>    <span class="s2">&quot;cosmology&quot;</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;PLANCK15&quot;</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.data">
+<span id="rubix-core-data-module"></span><h2>rubix.core.data module<a class="headerlink" href="#module-rubix.core.data" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.core.data.Galaxy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">Galaxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">redshift</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">halfmassrad_stars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/data.html#Galaxy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.Galaxy" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dataclass for storing the galaxy data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>redshift</strong> – Redshift of the galaxy</p></li>
+<li><p><strong>center</strong> – Center coordinates of the galaxy</p></li>
+<li><p><strong>halfmassrad_stars</strong> – Half mass radius of the stars in the galaxy</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.core.data.GasData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">GasData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal_energy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metallicity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sfr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">electron_abundance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_assignment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_bin_edges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datacube</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/data.html#GasData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.GasData" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dataclass for storing Gas data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coords</strong> – Coordinates of the gas particles</p></li>
+<li><p><strong>velocity</strong> – Velocities of the gas particles</p></li>
+<li><p><strong>mass</strong> – Mass of the gas particles</p></li>
+<li><p><strong>density</strong> – Density of the gas particles</p></li>
+<li><p><strong>internal_energy</strong> – Internal energy of the gas particles</p></li>
+<li><p><strong>metallicity</strong> – Metallicity of the gas particles</p></li>
+<li><p><strong>sfr</strong> – Star formation rate of the gas particles</p></li>
+<li><p><strong>electron_abundance</strong> – Electron abundance of the gas particles</p></li>
+<li><p><strong>pixel_assignment</strong> – Pixel assignment of the gas particles in the IFU grid</p></li>
+<li><p><strong>spatial_bin_edges</strong> – Spatial bin edges of the IFU grid</p></li>
+<li><p><strong>mask</strong> – Mask for the gas particles</p></li>
+<li><p><strong>spectra</strong> – Spectra for each gas particle</p></li>
+<li><p><strong>datacube</strong> – IFU datacube for the gas component</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.core.data.RubixData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">RubixData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">galaxy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rubix.core.data.Galaxy" title="rubix.core.data.Galaxy"><span class="pre">Galaxy</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rubix.core.data.StarsData" title="rubix.core.data.StarsData"><span class="pre">StarsData</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rubix.core.data.GasData" title="rubix.core.data.GasData"><span class="pre">GasData</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/data.html#RubixData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.RubixData" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dataclass for storing Rubix data. The RubixData object contains the galaxy, stars, and gas data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>galaxy</strong> – Galaxy object containing the galaxy data</p></li>
+<li><p><strong>stars</strong> – StarsData object containing the stars data</p></li>
+<li><p><strong>gas</strong> – GasData object containing the gas data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.core.data.StarsData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">StarsData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metallicity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel_assignment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spatial_bin_edges</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datacube</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/data.html#StarsData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.StarsData" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dataclass for storing the stars data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coords</strong> – Coordinates of the stars</p></li>
+<li><p><strong>velocity</strong> – Velocities of the stars</p></li>
+<li><p><strong>mass</strong> – Mass of the stars</p></li>
+<li><p><strong>metallicity</strong> – Metallicity of the stars</p></li>
+<li><p><strong>age</strong> – Age of the stars</p></li>
+<li><p><strong>pixel_assignment</strong> – Pixel assignment of the stars in the IFU grid</p></li>
+<li><p><strong>spatial_bin_edges</strong> – Spatial bin edges of the IFU grid</p></li>
+<li><p><strong>mask</strong> – Mask for the stars</p></li>
+<li><p><strong>spectra</strong> – Spectra for each stellar particle</p></li>
+<li><p><strong>datacube</strong> – IFU datacube for the stellar component</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.data.convert_to_rubix">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">convert_to_rubix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/data.html#convert_to_rubix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.convert_to_rubix" title="Link to this definition">#</a></dt>
+<dd><p>This function converts the data to Rubix format. The data can be loaded from an API or from a file, is then
+converted to Rubix format and saved to a file (hdf5 format). This ensures that the Rubix pipeline depends
+not on the simulation data format and basically can hndle any data.
+If the file already exists, the conversion is skipped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em><em> or </em><em>str</em>) – The configuration for the conversion. This can be a dictionary or a path to a YAML file containing the configuration.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The configuration used for the conversion. This can be used to pass the output path to the next step in the pipeline.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.data</span> <span class="kn">import</span> <span class="n">convert_to_rubix</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Define the configuration (example configuration)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>   <span class="s2">&quot;logger&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>       <span class="s2">&quot;log_level&quot;</span><span class="p">:</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+<span class="gp">... </span>       <span class="s2">&quot;log_file_path&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+<span class="gp">... </span>       <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(name)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="p">},</span>
+<span class="gp">... </span>   <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;IllustrisAPI&quot;</span><span class="p">,</span>
+<span class="gp">... </span>       <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>           <span class="s2">&quot;api_key&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ILLUSTRIS_API_KEY&quot;</span><span class="p">),</span>
+<span class="gp">... </span>           <span class="s2">&quot;particle_type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;stars&quot;</span><span class="p">,</span><span class="s2">&quot;gas&quot;</span><span class="p">],</span>
+<span class="gp">... </span>           <span class="s2">&quot;simulation&quot;</span><span class="p">:</span> <span class="s2">&quot;TNG50-1&quot;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="s2">&quot;snapshot&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="s2">&quot;save_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
+<span class="gp">... </span>       <span class="p">},</span>
+<span class="gp">... </span>       <span class="s2">&quot;load_galaxy_args&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>           <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="s2">&quot;reuse&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>       <span class="p">},</span>
+<span class="gp">... </span>       <span class="s2">&quot;subset&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>           <span class="s2">&quot;use_subset&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="s2">&quot;subset_size&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+<span class="gp">... </span>       <span class="p">},</span>
+<span class="gp">... </span>   <span class="p">},</span>
+<span class="gp">... </span>   <span class="s2">&quot;simulation&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>       <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;IllustrisTNG&quot;</span><span class="p">,</span>
+<span class="gp">... </span>       <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>           <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;data/galaxy-id-12.hdf5&quot;</span><span class="p">,</span>
+<span class="gp">... </span>       <span class="p">},</span>
+<span class="gp">... </span>   <span class="p">},</span>
+<span class="gp">... </span>   <span class="s2">&quot;output_path&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Convert the data to Rubix format</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convert_to_rubix</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.data.get_reshape_data">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">get_reshape_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/data.html#get_reshape_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.get_reshape_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns a function to reshape the data</p>
+<p>Maps the <cite>reshape_array</cite> function to the input data dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em><em> or </em><em>str</em>) – The configuration for the conversion. This can be a dictionary or a path to a YAML file containing the configuration.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A function to reshape the data.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.data</span> <span class="kn">import</span> <span class="n">get_reshape_data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reshape_data</span> <span class="o">=</span> <span class="n">get_reshape_data</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">reshape_data</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.data.get_rubix_data">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">get_rubix_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="reference internal" href="_modules/rubix/core/data.html#get_rubix_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.get_rubix_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns the Rubix data</p>
+<p>First the function converts the data to Rubix format (<code class="docutils literal notranslate"><span class="pre">convert_to_rubix(config)</span></code>) and then prepares the input data (<code class="docutils literal notranslate"><span class="pre">prepare_input(config)</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em><em> or </em><em>str</em>) – The configuration for the conversion. This can be a dictionary or a path to a YAML file containing the configuration.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The RubixData object containing the galaxy, stars, and gas data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.data.prepare_input">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">prepare_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="reference internal" href="_modules/rubix/core/data.html#prepare_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.prepare_input" title="Link to this definition">#</a></dt>
+<dd><p>This function prepares the input data for the pipeline. It loads the data from the file and converts it to Rubix format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em><em> or </em><em>str</em>) – The configuration for the conversion. This can be a dictionary or a path to a YAML file containing the configuration.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The RubixData object containing the galaxy, stars, and gas data.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.data</span> <span class="kn">import</span> <span class="n">convert_to_rubix</span><span class="p">,</span> <span class="n">prepare_input</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Define the configuration (example configuration)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">&gt;&gt;&gt; </span>           <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span>          <span class="p">}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Convert the data to Rubix format</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convert_to_rubix</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Prepare the input data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">prepare_input</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Access the galaxy data, e.g. the stellar coordintates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">coords</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.data.reshape_array">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.data.</span></span><span class="sig-name descname"><span class="pre">reshape_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Array</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Array</span></span></span><a class="reference internal" href="_modules/rubix/core/data.html#reshape_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.data.reshape_array" title="Link to this definition">#</a></dt>
+<dd><p>Reshapes an array to be compatible with JAX parallelization</p>
+<p>The function reshapes an array of shape (n_particles, n_features) to an array of shape (n_gpus, particles_per_gpu, n_features).</p>
+<p>Padding with zero is added if necessary to ensure that the number of particles per GPU is the same for all GPUs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>arr</strong> (<em>jnp.ndarray</em>) – The array to reshape</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The reshaped array as jnp.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.ifu">
+<span id="rubix-core-ifu-module"></span><h2>rubix.core.ifu module<a class="headerlink" href="#module-rubix.core.ifu" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ifu.get_calculate_datacube">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ifu.</span></span><span class="sig-name descname"><span class="pre">get_calculate_datacube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ifu.html#get_calculate_datacube"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ifu.get_calculate_datacube" title="Link to this definition">#</a></dt>
+<dd><p>The function returns the function that calculates the datacube of the stars.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – The configuration dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function that calculates the datacube of the stars.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.ifu</span> <span class="kn">import</span> <span class="n">get_calculate_datacube</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calculate_datacube</span> <span class="o">=</span> <span class="n">get_calculate_datacube</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">calculate_datacube</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Access the datacube of the stars</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">datacube</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ifu.get_calculate_spectra">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ifu.</span></span><span class="sig-name descname"><span class="pre">get_calculate_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ifu.html#get_calculate_spectra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ifu.get_calculate_spectra" title="Link to this definition">#</a></dt>
+<dd><p>The function gets the lookup function that performs the lookup to the SSP model,
+and parallelizes the funciton across all GPUs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – The configuration dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function that calculates the spectra of the stars.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s2">&quot;ssp&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;template&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;BruzualCharlot2003&quot;</span>
+<span class="gp">... </span>            <span class="p">},</span>
+<span class="gp">... </span>         <span class="p">},</span>
+<span class="gp">... </span>    <span class="p">}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.ifu</span> <span class="kn">import</span> <span class="n">get_calculate_spectra</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calcultae_spectra</span> <span class="o">=</span> <span class="n">get_calculate_spectra</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">calcultae_spectra</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Access the spectra of the stars</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">spectra</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ifu.get_doppler_shift_and_resampling">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ifu.</span></span><span class="sig-name descname"><span class="pre">get_doppler_shift_and_resampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ifu.html#get_doppler_shift_and_resampling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ifu.get_doppler_shift_and_resampling" title="Link to this definition">#</a></dt>
+<dd><p>The function doppler shifts the wavelength based on the velocity of the stars and resamples the spectra to the telescope wavelength grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – The configuration dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function that doppler shifts the wavelength based on the velocity of the stars and resamples the spectra to the telescope wavelength grid.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.ifu</span> <span class="kn">import</span> <span class="n">get_doppler_shift_and_resampling</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doppler_shift_and_resampling</span> <span class="o">=</span> <span class="n">get_doppler_shift_and_resampling</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">doppler_shift_and_resampling</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Access the spectra of the stars, which is now doppler shifted and resampled to the telescope wavelength grid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">spectra</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ifu.get_resample_spectrum_pmap">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ifu.</span></span><span class="sig-name descname"><span class="pre">get_resample_spectrum_pmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_wavelength</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ifu.html#get_resample_spectrum_pmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ifu.get_resample_spectrum_pmap" title="Link to this definition">#</a></dt>
+<dd><p>Pmap the function that resamples the spectra of the stars to the telescope wavelength grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target_wavelength</strong> (<em>jax.Array</em>) – The telescope wavelength grid</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function that resamples the spectra to the telescope wavelength grid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ifu.get_resample_spectrum_vmap">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ifu.</span></span><span class="sig-name descname"><span class="pre">get_resample_spectrum_vmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_wavelength</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ifu.html#get_resample_spectrum_vmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ifu.get_resample_spectrum_vmap" title="Link to this definition">#</a></dt>
+<dd><p>The spectra of the stars are resampled to the telescope wavelength grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target_wavelength</strong> (<em>jax.Array</em>) – The telescope wavelength grid</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function that resamples the spectra to the telescope wavelength grid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ifu.get_scale_spectrum_by_mass">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ifu.</span></span><span class="sig-name descname"><span class="pre">get_scale_spectrum_by_mass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ifu.html#get_scale_spectrum_by_mass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ifu.get_scale_spectrum_by_mass" title="Link to this definition">#</a></dt>
+<dd><p>The spectra of the stellar particles are scaled by the mass of the stars.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – The configuration dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function that scales the spectra by the mass of the stars.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.ifu</span> <span class="kn">import</span> <span class="n">get_scale_spectrum_by_mass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scale_spectrum_by_mass</span> <span class="o">=</span> <span class="n">get_scale_spectrum_by_mass</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">scale_spectrum_by_mass</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Access the spectra of the stars, which is now scaled by the stellar mass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">spectra</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ifu.get_velocities_doppler_shift_vmap">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ifu.</span></span><span class="sig-name descname"><span class="pre">get_velocities_doppler_shift_vmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssp_wave</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Float</span><span class="p"><span class="pre">[</span></span><span class="pre">Array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'...'</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ifu.html#get_velocities_doppler_shift_vmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ifu.get_velocities_doppler_shift_vmap" title="Link to this definition">#</a></dt>
+<dd><p>The function doppler shifts the wavelength based on the velocity of the stars.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ssp_wave</strong> (<em>jax.Array</em>) – The wavelength of the SSP grid</p></li>
+<li><p><strong>velocity_direction</strong> (<em>str</em>) – The velocity component of the stars that is used to doppler shift the wavelength</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function that doppler shifts the wavelength based on the velocity of the stars.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.lsf">
+<span id="rubix-core-lsf-module"></span><h2>rubix.core.lsf module<a class="headerlink" href="#module-rubix.core.lsf" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.lsf.get_convolve_lsf">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.lsf.</span></span><span class="sig-name descname"><span class="pre">get_convolve_lsf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/lsf.html#get_convolve_lsf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.lsf.get_convolve_lsf" title="Link to this definition">#</a></dt>
+<dd><p>Get the function to convolve with the Line Spread Function (LSF) based on the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function to convolve with the LSF.</p>
+</dd>
+</dl>
+<section id="example">
+<h3>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span>    <span class="s2">&quot;telescope&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MUSE&quot;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="s2">&quot;psf&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;lsf&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;noise&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;signal_to_noise&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;noise_distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">},</span>
+<span class="gp">... </span>   <span class="p">},</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.lsf</span> <span class="kn">import</span> <span class="n">get_convolve_lsf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convolve_lsf</span> <span class="o">=</span> <span class="n">get_convolve_lsf</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">convolve_lsf</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.noise">
+<span id="rubix-core-noise-module"></span><h2>rubix.core.noise module<a class="headerlink" href="#module-rubix.core.noise" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.noise.get_apply_noise">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.noise.</span></span><span class="sig-name descname"><span class="pre">get_apply_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/noise.html#get_apply_noise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.noise.get_apply_noise" title="Link to this definition">#</a></dt>
+<dd><p>Get the function to apply noise to the datacube based on the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function to apply noise to the datacube.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span>    <span class="s2">&quot;telescope&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MUSE&quot;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="s2">&quot;psf&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;lsf&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;noise&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;signal_to_noise&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;noise_distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">},</span>
+<span class="gp">... </span>   <span class="p">},</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.noise</span> <span class="kn">import</span> <span class="n">get_apply_noise</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">apply_noise</span> <span class="o">=</span> <span class="n">get_apply_noise</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">apply_noise</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.pipeline">
+<span id="rubix-core-pipeline-module"></span><h2>rubix.core.pipeline module<a class="headerlink" href="#module-rubix.core.pipeline" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.core.pipeline.RubixPipeline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.core.pipeline.</span></span><span class="sig-name descname"><span class="pre">RubixPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/pipeline.html#RubixPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.pipeline.RubixPipeline" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>RubixPipeline is responsible for setting up and running the data processing pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_config</strong> (<em>dict</em><em> or </em><em>str</em>) – Parsed user configuration for the pipeline.</p></li>
+<li><p><strong>pipeline_config</strong> (<em>dict</em>) – Configuration for the pipeline.</p></li>
+<li><p><strong>logger</strong> (<em>Logger</em>) – Logger instance for logging messages.</p></li>
+<li><p><strong>ssp</strong> (<em>object</em>) – Stellar population synthesis model.</p></li>
+<li><p><strong>telescope</strong> (<em>object</em>) – Telescope configuration.</p></li>
+<li><p><strong>data</strong> (<em>dict</em>) – Dictionary containing particle data.</p></li>
+<li><p><strong>func</strong> (<em>callable</em>) – Compiled pipeline function to process data.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.pipeline</span> <span class="kn">import</span> <span class="n">RubixPipeline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="s2">&quot;path/to/config.yml&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">RubixPipeline</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssp_model</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">ssp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">telescope</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">telescope</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.core.pipeline.RubixPipeline.gradient">
+<span class="sig-name descname"><span class="pre">gradient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/pipeline.html#RubixPipeline.gradient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.pipeline.RubixPipeline.gradient" title="Link to this definition">#</a></dt>
+<dd><p>This function will calculate the gradient of the pipeline, but is yet not implemented.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.core.pipeline.RubixPipeline.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/pipeline.html#RubixPipeline.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.pipeline.RubixPipeline.run" title="Link to this definition">#</a></dt>
+<dd><p>Runs the data processing pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output of the pipeline after processing the input data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.psf">
+<span id="rubix-core-psf-module"></span><h2>rubix.core.psf module<a class="headerlink" href="#module-rubix.core.psf" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.psf.get_convolve_psf">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.psf.</span></span><span class="sig-name descname"><span class="pre">get_convolve_psf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/psf.html#get_convolve_psf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.psf.get_convolve_psf" title="Link to this definition">#</a></dt>
+<dd><p>Get the point spread function (PSF) kernel based on the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function to convolve the datacube with the PSF kernel.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span>    <span class="s2">&quot;telescope&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MUSE&quot;</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="s2">&quot;psf&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;lsf&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="s2">&quot;noise&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;signal_to_noise&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;noise_distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">},</span>
+<span class="gp">... </span>   <span class="p">},</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.psf</span> <span class="kn">import</span> <span class="n">get_convolve_psf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">convolve_psf</span> <span class="o">=</span> <span class="n">get_convolve_psf</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">convolve_psf</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.rotation">
+<span id="rubix-core-rotation-module"></span><h2>rubix.core.rotation module<a class="headerlink" href="#module-rubix.core.rotation" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.rotation.get_galaxy_rotation">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.rotation.</span></span><span class="sig-name descname"><span class="pre">get_galaxy_rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/core/rotation.html#get_galaxy_rotation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.rotation.get_galaxy_rotation" title="Link to this definition">#</a></dt>
+<dd><p>Get the function to rotate the galaxy based on the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function to rotate the galaxy.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span>    <span class="s2">&quot;galaxy&quot;</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s2">&quot;dist_z&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="s2">&quot;rotation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;edge-on&quot;</span><span class="p">},</span>
+<span class="gp">... </span>        <span class="p">},</span>
+<span class="gp">... </span>    <span class="o">...</span>
+<span class="gp">... </span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.rotation</span> <span class="kn">import</span> <span class="n">get_galaxy_rotation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rotate_galaxy</span> <span class="o">=</span> <span class="n">get_galaxy_rotation</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">rotate_galaxy</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.ssp">
+<span id="rubix-core-ssp-module"></span><h2>rubix.core.ssp module<a class="headerlink" href="#module-rubix.core.ssp" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ssp.get_lookup_interpolation">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ssp.</span></span><span class="sig-name descname"><span class="pre">get_lookup_interpolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ssp.html#get_lookup_interpolation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ssp.get_lookup_interpolation" title="Link to this definition">#</a></dt>
+<dd><p>Loads the SSP template defined in the configuration and returns the lookup function for the template.</p>
+<p>The lookup function is a function that takes in the metallicity and age of a star and returns the spectrum of the star.
+This is later used to vmap over the stars metallicities and ages, and pmap over multiple GPUs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lookup function for the SSP template.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ssp.get_lookup_interpolation_pmap">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ssp.</span></span><span class="sig-name descname"><span class="pre">get_lookup_interpolation_pmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ssp.html#get_lookup_interpolation_pmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ssp.get_lookup_interpolation_pmap" title="Link to this definition">#</a></dt>
+<dd><p>Get the pmap version of the lookup function for the SSP template defined in the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pmapped lookup function for the SSP template.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ssp.get_lookup_interpolation_vmap">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ssp.</span></span><span class="sig-name descname"><span class="pre">get_lookup_interpolation_vmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/ssp.html#get_lookup_interpolation_vmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ssp.get_lookup_interpolation_vmap" title="Link to this definition">#</a></dt>
+<dd><p>This function loads the SSP template defined in the configuration and returns the lookup function for the template,
+vmapped over the stars metallicities and ages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vmapped lookup function for the SSP template.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.ssp.get_ssp">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.ssp.</span></span><span class="sig-name descname"><span class="pre">get_ssp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="reference internal" href="_modules/rubix/core/ssp.html#get_ssp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.ssp.get_ssp" title="Link to this definition">#</a></dt>
+<dd><p>This function loads the simple stellar population (SSP) template defined in the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SSP template</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core.telescope">
+<span id="rubix-core-telescope-module"></span><h2>rubix.core.telescope module<a class="headerlink" href="#module-rubix.core.telescope" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.telescope.get_filter_particles">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.telescope.</span></span><span class="sig-name descname"><span class="pre">get_filter_particles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/telescope.html#get_filter_particles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.telescope.get_filter_particles" title="Link to this definition">#</a></dt>
+<dd><p>Get the function to filter particles outside the aperture.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The filter particles function</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.telescope</span> <span class="kn">import</span> <span class="n">get_filter_particles</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filter_particles</span> <span class="o">=</span> <span class="n">get_filter_particles</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">filter_particles</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.telescope.get_spatial_bin_edges">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.telescope.</span></span><span class="sig-name descname"><span class="pre">get_spatial_bin_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Array</span></span></span><a class="reference internal" href="_modules/rubix/core/telescope.html#get_spatial_bin_edges"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.telescope.get_spatial_bin_edges" title="Link to this definition">#</a></dt>
+<dd><p>Get the spatial bin edges based on the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The spatial bin edges.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.telescope.get_spaxel_assignment">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.telescope.</span></span><span class="sig-name descname"><span class="pre">get_spaxel_assignment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="reference internal" href="_modules/rubix/core/telescope.html#get_spaxel_assignment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.telescope.get_spaxel_assignment" title="Link to this definition">#</a></dt>
+<dd><p>Get the spaxel assignment function based on the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The spaxel assignment function.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.telescope</span> <span class="kn">import</span> <span class="n">get_spaxel_assignment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bin_particles</span> <span class="o">=</span> <span class="n">get_spaxel_assignment</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rubixdata</span> <span class="o">=</span> <span class="n">bin_particles</span><span class="p">(</span><span class="n">rubixdata</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">pixel_assignment</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">spatial_bin_edges</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.core.telescope.get_telescope">
+<span class="sig-prename descclassname"><span class="pre">rubix.core.telescope.</span></span><span class="sig-name descname"><span class="pre">get_telescope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rubix.telescope.html#rubix.telescope.base.BaseTelescope" title="rubix.telescope.base.BaseTelescope"><span class="pre">BaseTelescope</span></a></span></span><a class="reference internal" href="_modules/rubix/core/telescope.html#get_telescope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.core.telescope.get_telescope" title="Link to this definition">#</a></dt>
+<dd><p>Get the telescope object based on the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The telescope object.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rubix.core.telescope</span> <span class="kn">import</span> <span class="n">get_telescope</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s2">&quot;telescope&quot;</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MUSE&quot;</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">telescope</span> <span class="o">=</span> <span class="n">get_telescope</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">telescope</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-rubix.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rubix.core" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="notebooks/psf.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The point spread function</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rubix.cosmology.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rubix.cosmology package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.cosmology">rubix.core.cosmology module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.cosmology.get_cosmology"><code class="docutils literal notranslate"><span class="pre">get_cosmology()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.data">rubix.core.data module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.Galaxy"><code class="docutils literal notranslate"><span class="pre">Galaxy</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.GasData"><code class="docutils literal notranslate"><span class="pre">GasData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.RubixData"><code class="docutils literal notranslate"><span class="pre">RubixData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.StarsData"><code class="docutils literal notranslate"><span class="pre">StarsData</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.convert_to_rubix"><code class="docutils literal notranslate"><span class="pre">convert_to_rubix()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.get_reshape_data"><code class="docutils literal notranslate"><span class="pre">get_reshape_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.get_rubix_data"><code class="docutils literal notranslate"><span class="pre">get_rubix_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.prepare_input"><code class="docutils literal notranslate"><span class="pre">prepare_input()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.data.reshape_array"><code class="docutils literal notranslate"><span class="pre">reshape_array()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.ifu">rubix.core.ifu module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_calculate_datacube"><code class="docutils literal notranslate"><span class="pre">get_calculate_datacube()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_calculate_spectra"><code class="docutils literal notranslate"><span class="pre">get_calculate_spectra()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_doppler_shift_and_resampling"><code class="docutils literal notranslate"><span class="pre">get_doppler_shift_and_resampling()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_resample_spectrum_pmap"><code class="docutils literal notranslate"><span class="pre">get_resample_spectrum_pmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_resample_spectrum_vmap"><code class="docutils literal notranslate"><span class="pre">get_resample_spectrum_vmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_scale_spectrum_by_mass"><code class="docutils literal notranslate"><span class="pre">get_scale_spectrum_by_mass()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ifu.get_velocities_doppler_shift_vmap"><code class="docutils literal notranslate"><span class="pre">get_velocities_doppler_shift_vmap()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.lsf">rubix.core.lsf module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.lsf.get_convolve_lsf"><code class="docutils literal notranslate"><span class="pre">get_convolve_lsf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.noise">rubix.core.noise module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.noise.get_apply_noise"><code class="docutils literal notranslate"><span class="pre">get_apply_noise()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.pipeline">rubix.core.pipeline module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.pipeline.RubixPipeline"><code class="docutils literal notranslate"><span class="pre">RubixPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.pipeline.RubixPipeline.gradient"><code class="docutils literal notranslate"><span class="pre">RubixPipeline.gradient()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.pipeline.RubixPipeline.run"><code class="docutils literal notranslate"><span class="pre">RubixPipeline.run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.psf">rubix.core.psf module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.psf.get_convolve_psf"><code class="docutils literal notranslate"><span class="pre">get_convolve_psf()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.rotation">rubix.core.rotation module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.rotation.get_galaxy_rotation"><code class="docutils literal notranslate"><span class="pre">get_galaxy_rotation()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.ssp">rubix.core.ssp module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ssp.get_lookup_interpolation"><code class="docutils literal notranslate"><span class="pre">get_lookup_interpolation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ssp.get_lookup_interpolation_pmap"><code class="docutils literal notranslate"><span class="pre">get_lookup_interpolation_pmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ssp.get_lookup_interpolation_vmap"><code class="docutils literal notranslate"><span class="pre">get_lookup_interpolation_vmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.ssp.get_ssp"><code class="docutils literal notranslate"><span class="pre">get_ssp()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core.telescope">rubix.core.telescope module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.telescope.get_filter_particles"><code class="docutils literal notranslate"><span class="pre">get_filter_particles()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.telescope.get_spatial_bin_edges"><code class="docutils literal notranslate"><span class="pre">get_spatial_bin_edges()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.telescope.get_spaxel_assignment"><code class="docutils literal notranslate"><span class="pre">get_spaxel_assignment()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.core.telescope.get_telescope"><code class="docutils literal notranslate"><span class="pre">get_telescope()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.core">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ufuk, Tobias, Anna Lena
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Ufuk, Tobias, Anna Lena.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rubix.pipeline package &#8212; rubix 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rubix.pipeline';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rubix.spectra package" href="rubix.spectra.html" />
+    <link rel="prev" title="rubix.galaxy.input_handler package" href="rubix.galaxy.input_handler.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">rubix 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">RUBIX documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to RUBIX’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Code versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/create_rubix_data.html">Create RUBIX data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/pipeline_demo.html">Concept of the pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/rubix_pipeline_single_function.html">RUBIX pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/rubix_pipeline_stepwise.html">RUBIX pipeline in steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/cosmology.html">Cosmology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/telescope.html">Telescopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/spaxel_assignment.html">Spaxel assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/ssp_template.html">Load supported SSP templates</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks/psf.html">The point spread function</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code documentation:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rubix.core.html">rubix.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix.cosmology.html">rubix.cosmology package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rubix.galaxy.html">rubix.galaxy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rubix.galaxy.input_handler.html">rubix.galaxy.input_handler package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">rubix.pipeline package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rubix.spectra.html">rubix.spectra package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rubix.spectra.ssp.html">rubix.spectra.ssp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rubix.telescope.html">rubix.telescope package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.lsf.html">rubix.telescope.lsf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.psf.html">rubix.telescope.psf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rubix.telescope.noise.html">rubix.telescope.noise package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix.utils.html">utils</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ufuk-cakir/rubix" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/rubix.pipeline.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>rubix.pipeline package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.pipeline.abstract_pipeline">rubix.pipeline.abstract_pipeline module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.assemble"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.assemble()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.compile_element"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.compile_element()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.compile_expression"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.compile_expression()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.get_jaxpr"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.get_jaxpr()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.get_jaxpr_for_element"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.get_jaxpr_for_element()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.pipeline"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.pipeline</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.register_transformer"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.register_transformer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.pipeline.linear_pipeline">rubix.pipeline.linear_pipeline module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.apply"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline.apply()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.build_expression"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline.build_expression()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.build_pipeline"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline.build_pipeline()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.update_pipeline"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline.update_pipeline()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.pipeline.transformer">rubix.pipeline.transformer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.transformer.bound_transformer"><code class="docutils literal notranslate"><span class="pre">bound_transformer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.transformer.compiled_transformer"><code class="docutils literal notranslate"><span class="pre">compiled_transformer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.transformer.expression_transformer"><code class="docutils literal notranslate"><span class="pre">expression_transformer()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.pipeline">Module contents</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rubix-pipeline-package">
+<h1>rubix.pipeline package<a class="headerlink" href="#rubix-pipeline-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-rubix.pipeline.abstract_pipeline">
+<span id="rubix-pipeline-abstract-pipeline-module"></span><h2>rubix.pipeline.abstract_pipeline module<a class="headerlink" href="#module-rubix.pipeline.abstract_pipeline" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.pipeline.abstract_pipeline.AbstractPipeline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.pipeline.abstract_pipeline.</span></span><span class="sig-name descname"><span class="pre">AbstractPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/abstract_pipeline.html#AbstractPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>AbstractPipeline Abstract baseclass for data transformation pipelines.
+Provides methods <cite>build_pipeline</cite>, <cite>build_expression</cite> and <cite>apply</cite> which
+must be implemented by every derived class and
+which are responsible for building up the pipeline, for assembling it into
+a self-contained pure functional function and for applyin the latter to
+data, respectively.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.abstract_pipeline.AbstractPipeline.assemble">
+<span class="sig-name descname"><span class="pre">assemble</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/abstract_pipeline.html#AbstractPipeline.assemble"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.assemble" title="Link to this definition">#</a></dt>
+<dd><p>assemble Assemble the pipeline into a self-contained function with the
+same signature as the pipeline’s first element. Can only run if all
+functions that make up the pipeline are registered with it by calling
+<cite>register_transformer</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RuntimeError</strong> – When no transformers are registered to build the pipeline out of.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.abstract_pipeline.AbstractPipeline.compile_element">
+<span class="sig-name descname"><span class="pre">compile_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/abstract_pipeline.html#AbstractPipeline.compile_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.compile_element" title="Link to this definition">#</a></dt>
+<dd><p>compile_element Compile an element of the pipeline named ‘name’ with
+the jax jit with the provided static_args and static kwargs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name of the element to be compiled</p></li>
+<li><p><strong>static_args</strong> (<em>list</em><em>, </em><em>optional</em>) – static positional argument indices. Will be forwarded to the jit
+static_argnums argument., by default []</p></li>
+<li><p><strong>static_kwargs</strong> (<em>list</em><em>, </em><em>optional</em>) – Names of the static keyword arguments. Will be forwarded to the
+jit static_argnames argument, by default []</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>_description_</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>_type_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.abstract_pipeline.AbstractPipeline.compile_expression">
+<span class="sig-name descname"><span class="pre">compile_expression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">static_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/abstract_pipeline.html#AbstractPipeline.compile_expression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.compile_expression" title="Link to this definition">#</a></dt>
+<dd><dl class="simple">
+<dt>compile_expression Compile the function that represents an application</dt><dd><p>of this pipeline to input data using jax jit.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>static_args</strong> (<em>list</em><em>, </em><em>optional</em>) – static poisitional arguments that should not be traced by jit, by default []</p></li>
+<li><p><strong>static_kwargs</strong> (<em>list</em><em>, </em><em>optional</em>) – statiuc keyword arguments that should not be traced by jit, by default []</p></li>
+<li><p><strong>Returns</strong> – Compiled pipeline function as PjitFunction</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.abstract_pipeline.AbstractPipeline.get_jaxpr">
+<span class="sig-name descname"><span class="pre">get_jaxpr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/abstract_pipeline.html#AbstractPipeline.get_jaxpr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.get_jaxpr" title="Link to this definition">#</a></dt>
+<dd><p>get_jaxpr Get a jax intermediate expression for the function that
+represents an application of this pipeline to input data.
+Please note that this only works with tatic positional arguments: JAX does currently not provide a way to have static keyword arguments when creating a jaxpr and not a jited function.
+You can use <cite>partial</cite> to fix keyword arguments before calling this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>static_args</strong> (<em>list</em><em>, </em><em>optional</em>) – Static argument indices. Will be forwarded to the static_argnums
+argument of jax.make_jaxpr, by default []</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>jax.ClosedJaxpr</em> – If <a href="#id1"><span class="problematic" id="id2">*</span></a>args is not empty: A jax intermediate representation that
+results from applying the calling pipeline to the provided arguments.</p></li>
+<li><p><em>Callable</em> – if <a href="#id3"><span class="problematic" id="id4">*</span></a>args is empty. A function that will result in a jax
+intermediate expression if called with desired arguments.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.abstract_pipeline.AbstractPipeline.get_jaxpr_for_element">
+<span class="sig-name descname"><span class="pre">get_jaxpr_for_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/abstract_pipeline.html#AbstractPipeline.get_jaxpr_for_element"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.get_jaxpr_for_element" title="Link to this definition">#</a></dt>
+<dd><p>get_jaxpr_for_element Create a jax intermediate expression for a given
+element of the pipeline named ‘name’ with static arguments ‘static_args
+and arguments <a href="#id5"><span class="problematic" id="id6">*</span></a>args. If no arguments are provided, a function is
+returned which will return the intermediate representation once it is
+called with arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name of the element to be retrieved</p></li>
+<li><p><strong>static_args</strong> (<em>list</em><em>, </em><em>optional</em>) – static positional argument indices, by default []</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>jax.ClosedJaxpr</em> – If <a href="#id7"><span class="problematic" id="id8">*</span></a>args is not empty: Intermediate expression respresenting the
+computation that is carried out when calling the element with the
+given arguments.</p></li>
+<li><p><em>Callable</em> – If <a href="#id9"><span class="problematic" id="id10">*</span></a>args is empty: Function that returns a jax.ClosedJaxpr once
+called with appropriate arguments.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="rubix.pipeline.abstract_pipeline.AbstractPipeline.pipeline">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pipeline</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.pipeline" title="Link to this definition">#</a></dt>
+<dd><p>pipeline Get the sequence of functions that make up the pipeline as a
+dictionary of name: function pairs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>function pairs as dict.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Description of the pipeline as name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.abstract_pipeline.AbstractPipeline.register_transformer">
+<span class="sig-name descname"><span class="pre">register_transformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/abstract_pipeline.html#AbstractPipeline.register_transformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.register_transformer" title="Link to this definition">#</a></dt>
+<dd><p>register_transformer Make a functtion available to the calling
+pipeline object. The registered function must be a pure functional
+function in order to be transformable with jax. The registered transformers
+are used to build a pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cls</strong> – function object to register.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – When the function is already registered  with the pipeline</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rubix.pipeline.linear_pipeline">
+<span id="rubix-pipeline-linear-pipeline-module"></span><h2>rubix.pipeline.linear_pipeline module<a class="headerlink" href="#module-rubix.pipeline.linear_pipeline" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rubix.pipeline.linear_pipeline.LinearTransformerPipeline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rubix.pipeline.linear_pipeline.</span></span><span class="sig-name descname"><span class="pre">LinearTransformerPipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/linear_pipeline.html#LinearTransformerPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline" title="rubix.pipeline.abstract_pipeline.AbstractPipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractPipeline</span></code></a></p>
+<p>LinearTransformerPipeline An implementation of a data transformation
+pipeline in the form of a simple, 1-D chain of composed functions in which
+each function uses the output of the function before it as arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>apl</strong> – Abstract base class for all pipeline implementations</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.linear_pipeline.LinearTransformerPipeline.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/linear_pipeline.html#LinearTransformerPipeline.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.apply" title="Link to this definition">#</a></dt>
+<dd><p>apply Apply the pipeline to a set of input positional arguments <a href="#id11"><span class="problematic" id="id12">*</span></a>args
+and keyword arguments <a href="#id13"><span class="problematic" id="id14">**</span></a>kwargs that match the
+signature of the first method in the pipeline with static
+(keyword) arguments that are not traced. First applies the jax jit
+to the pre-assembled pipeline, then applies the result to the
+arguments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*args</strong> – Positional arguments to apply the pipeline to</p></li>
+<li><p><strong>static_args</strong> (<em>list</em><em>, </em><em>optional</em>) – Positional arguments that should not be traced, by default [].</p></li>
+<li><p><strong>static_kwargs</strong> (<em>list</em><em>, </em><em>optional</em>) – Keyword arguments that should not be traced, by default [].</p></li>
+<li><p><strong>**kwargs</strong> – Keyword arguments to apply the pipeline to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of the application of the pipeline to the provided input as object.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – _description_</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.linear_pipeline.LinearTransformerPipeline.build_expression">
+<span class="sig-name descname"><span class="pre">build_expression</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/linear_pipeline.html#LinearTransformerPipeline.build_expression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.build_expression" title="Link to this definition">#</a></dt>
+<dd><p>build_expression Compose the assembled pipeline into a single
+expression that has the same signature as the first element of the
+pipeline.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.linear_pipeline.LinearTransformerPipeline.build_pipeline">
+<span class="sig-name descname"><span class="pre">build_pipeline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/linear_pipeline.html#LinearTransformerPipeline.build_pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.build_pipeline" title="Link to this definition">#</a></dt>
+<dd><p>build_pipeline builds up the pipeline from the internally stored
+configuration.
+This only works when all transformers the pipeline is composed of have
+been registered with it. Multiple different versions (configurations) of
+the same transformer can be used in a pipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>RuntimeError</strong> – When there are no transformers to build the pipeline out of.</p></li>
+<li><p><strong>ValueError</strong> – When there are multiple starting points to the pipeline.</p></li>
+<li><p><strong>ValueError</strong> – When branching occurs in the pipeline.</p></li>
+<li><p><strong>ValueError</strong> – When a config node is present that does not have a ‘name’ attribute.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rubix.pipeline.linear_pipeline.LinearTransformerPipeline.update_pipeline">
+<span class="sig-name descname"><span class="pre">update_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/linear_pipeline.html#LinearTransformerPipeline.update_pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.update_pipeline" title="Link to this definition">#</a></dt>
+<dd><p>update_pipeline adds a new pipeline node with name ‘current_name’ to
+the pipeline, taking into account internal linear dependencies.
+Mostly used internally for adding nodes one by one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>current_name</strong> – Name of the node to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rubix.pipeline.transformer">
+<span id="rubix-pipeline-transformer-module"></span><h2>rubix.pipeline.transformer module<a class="headerlink" href="#module-rubix.pipeline.transformer" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.pipeline.transformer.bound_transformer">
+<span class="sig-prename descclassname"><span class="pre">rubix.pipeline.transformer.</span></span><span class="sig-name descname"><span class="pre">bound_transformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/transformer.html#bound_transformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.transformer.bound_transformer" title="Link to this definition">#</a></dt>
+<dd><p>bound_transformer  creates a jax.Partial function from an input
+function and given arguments and keyword arguments.
+The user must take care that arguments are bound starting from the first,
+i.e., leftmost. If specific arguments should be bound using keyword
+arguments may be advisable.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.pipeline.transformer.compiled_transformer">
+<span class="sig-prename descclassname"><span class="pre">rubix.pipeline.transformer.</span></span><span class="sig-name descname"><span class="pre">compiled_transformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/transformer.html#compiled_transformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.transformer.compiled_transformer" title="Link to this definition">#</a></dt>
+<dd><p>compiled_transformer creates a precompiled function with jax with given arguments and keyword arguments that will be bound to the function, similar
+to using functools.partial with <a href="#id15"><span class="problematic" id="id16">*</span></a>args and <a href="#id17"><span class="problematic" id="id18">**</span></a>kwargs.</p>
+<p>Note that any array args/kwargs will behave as dynamic arguments in the jax jit, while any non-array args/kwargs will behave as static.
+static_args and static_kwargs refer to the remaining arguments.</p>
+<p><a href="#id19"><span class="problematic" id="id20">*</span></a>args count from the first positional argument of the decorated function in order. <a href="#id21"><span class="problematic" id="id22">*</span></a>args and <a href="#id23"><span class="problematic" id="id24">**</span></a>kwargs are bound to the decorated function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>static_args</strong> (<em>list</em><em>, </em><em>optional</em>) – Indices of static, i.e., untraced arguments of the bound function, by default [].</p></li>
+<li><p><strong>static_kwargs</strong> (<em>list</em><em>, </em><em>optional</em>) – Names of static, i.e., untraced, keyword arguments of the bound function, by default {}.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rubix.pipeline.transformer.expression_transformer">
+<span class="sig-prename descclassname"><span class="pre">rubix.pipeline.transformer.</span></span><span class="sig-name descname"><span class="pre">expression_transformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/rubix/pipeline/transformer.html#expression_transformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rubix.pipeline.transformer.expression_transformer" title="Link to this definition">#</a></dt>
+<dd><p>expression_transformer creates a jax intermediate expression with given
+untraced arguments from a function. Please note that this only works with
+static positional arguments: JAX does currently not provide a way to have
+static keyword arguments when creating a jaxpr and not a jited function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>static_args</strong> (<em>list</em><em>, </em><em>optional</em>) – Indices of static, i.e., untraced arguments to the function, by default [].</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-rubix.pipeline">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rubix.pipeline" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rubix.galaxy.input_handler.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rubix.galaxy.input_handler package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rubix.spectra.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rubix.spectra package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.pipeline.abstract_pipeline">rubix.pipeline.abstract_pipeline module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.assemble"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.assemble()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.compile_element"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.compile_element()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.compile_expression"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.compile_expression()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.get_jaxpr"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.get_jaxpr()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.get_jaxpr_for_element"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.get_jaxpr_for_element()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.pipeline"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.pipeline</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.abstract_pipeline.AbstractPipeline.register_transformer"><code class="docutils literal notranslate"><span class="pre">AbstractPipeline.register_transformer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.pipeline.linear_pipeline">rubix.pipeline.linear_pipeline module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.apply"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline.apply()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.build_expression"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline.build_expression()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.build_pipeline"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline.build_pipeline()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.linear_pipeline.LinearTransformerPipeline.update_pipeline"><code class="docutils literal notranslate"><span class="pre">LinearTransformerPipeline.update_pipeline()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.pipeline.transformer">rubix.pipeline.transformer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.transformer.bound_transformer"><code class="docutils literal notranslate"><span class="pre">bound_transformer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.transformer.compiled_transformer"><code class="docutils literal notranslate"><span class="pre">compiled_transformer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubix.pipeline.transformer.expression_transformer"><code class="docutils literal notranslate"><span class="pre">expression_transformer()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-rubix.pipeline">Module contents</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ufuk, Tobias, Anna Lena
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Ufuk, Tobias, Anna Lena.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

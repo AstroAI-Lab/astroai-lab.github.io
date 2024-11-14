@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RUBIX pipeline &#8212; rubix 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/rubix_pipeline_single_function';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RUBIX pipeline in steps" href="rubix_pipeline_stepwise.html" />
+    <link rel="prev" title="Concept of the pipeline" href="pipeline_demo.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">rubix 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">RUBIX documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to RUBIX’s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">Code versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="create_rubix_data.html">Create RUBIX data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_demo.html">Concept of the pipeline</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">RUBIX pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rubix_pipeline_stepwise.html">RUBIX pipeline in steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmology.html">Cosmology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="telescope.html">Telescopes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spaxel_assignment.html">Spaxel assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssp_template.html">Load supported SSP templates</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="psf.html">The point spread function</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code documentation:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rubix.core.html">rubix.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rubix.cosmology.html">rubix.cosmology package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rubix.galaxy.html">rubix.galaxy package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.galaxy.input_handler.html">rubix.galaxy.input_handler package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../rubix.pipeline.html">rubix.pipeline package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rubix.spectra.html">rubix.spectra package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.spectra.ssp.html">rubix.spectra.ssp package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rubix.telescope.html">rubix.telescope package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.telescope.lsf.html">rubix.telescope.lsf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.telescope.psf.html">rubix.telescope.psf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rubix.telescope.noise.html">rubix.telescope.noise package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../rubix.utils.html">utils</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/ufuk-cakir/rubix" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/rubix_pipeline_single_function.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>RUBIX pipeline</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-the-pipeline">How to use the Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-config">Step 1: Config</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-pipeline-yaml">Step 2: Pipeline yaml</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-run-the-pipeline">Step 3: Run the pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-mock-data">Step 4: Mock-data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#done">DONE!</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rubix-pipeline">
+<h1>RUBIX pipeline<a class="headerlink" href="#rubix-pipeline" title="Link to this heading">#</a></h1>
+<p>RUBIX is designed as a linear pipeline, where the individual functions are called and constructed as a pipeline. This allows as to execude the whole data transformation from a cosmological hydrodynamical simulation of a galaxy to an IFU cube in two lines of code. This notebook shows, how to execute the pipeline. To see, how the pipeline is execuded in small individual steps per individual function, we refer to the notebook <code class="docutils literal notranslate"><span class="pre">rubix_pipeline_stepwise.ipynb</span></code>.</p>
+<section id="how-to-use-the-pipeline">
+<h2>How to use the Pipeline<a class="headerlink" href="#how-to-use-the-pipeline" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Define a <code class="docutils literal notranslate"><span class="pre">config</span></code></p></li>
+<li><p>Setup the <code class="docutils literal notranslate"><span class="pre">pipeline</span> <span class="pre">yaml</span></code></p></li>
+<li><p>Run the RUBIX pipeline</p></li>
+<li><p>Do science with the mock-data</p></li>
+</ol>
+</section>
+<section id="step-1-config">
+<h2>Step 1: Config<a class="headerlink" href="#step-1-config" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">config</span></code> contains all the information needed to run the pipeline. Those are run specfic configurations. Currently we just support Illustris as simulation, but extensions to other simulations (e.g. NIHAO) are planned.</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">config</span></code> you can choose the following options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pipeline</span></code>: you specify the name of the pipeline that is stored in the yaml file in rubix/config/pipeline_config.yml</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logger</span></code>: RUBIX has implemented a logger to report the user, what is happening during the pipeline execution and give warnings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">-</span> <span class="pre">args</span> <span class="pre">-</span> <span class="pre">particle_type</span></code>: load only stars particle (“particle_type”: [“stars”]) or only gas particle (“particle_type”: [“gas”]) or both (“particle_type”: [“stars”,”gas”])</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">-</span> <span class="pre">args</span> <span class="pre">-</span> <span class="pre">simulation</span></code>: choose the Illustris simulation (e.g. “simulation”: “TNG50-1”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">-</span> <span class="pre">args</span> <span class="pre">-</span> <span class="pre">snapshot</span></code>: which time step of the simulation (99 for present day)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">-</span> <span class="pre">args</span> <span class="pre">-</span> <span class="pre">save_data_path</span></code>: set the path to save the downloaded Illustris data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">-</span> <span class="pre">load_galaxy_args</span> <span class="pre">-</span> <span class="pre">id</span></code>: define, which Illustris galaxy is downloaded</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">-</span> <span class="pre">load_galaxy_args</span> <span class="pre">-</span> <span class="pre">reuse</span></code>: if True, if in th esave_data_path directory a file for this galaxy id already exists, the downloading is skipped and the preexisting file is used</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">-</span> <span class="pre">subset</span></code>: only a defined number of stars/gas particles is used and stored for the pipeline. This may be helpful for quick testing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">-</span> <span class="pre">name</span></code>: currently only IllustrisTNG is supported</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">simulation</span> <span class="pre">-</span> <span class="pre">args</span> <span class="pre">-</span> <span class="pre">path</span></code>: where the data is stored and how the file will be named</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_path</span></code>: where the hdf5 file is stored, which is then the input to the RUBIX pipeline</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telescope</span> <span class="pre">-</span> <span class="pre">name</span></code>: define the telescope instrument that is observing the simulation. Some telescopes are predefined, e.g. MUSE. If your instrument does not exist predefined, you can easily define your instrument in rubix/telescope/telescopes.yaml</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telescope</span> <span class="pre">-</span> <span class="pre">psf</span></code>: define the point spread function that is applied to the mock data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telescope</span> <span class="pre">-</span> <span class="pre">lsf</span></code>: define the line spread function that is applied to the mock data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">telescope</span> <span class="pre">-</span> <span class="pre">noise</span></code>: define the noise that is applied to the mock data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cosmology</span></code>: specify the cosmology you want to use, standard for RUBIX is “PLANCK15”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">galaxy</span> <span class="pre">-</span> <span class="pre">dist_z</span></code>: specify at which redshift the mock-galaxy is observed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">galaxy</span> <span class="pre">-</span> <span class="pre">rotation</span></code>: specify the orientation of the galaxy. You can set the types edge-on or face-on or specify the angles alpha, beta and gamma as rotations around x-, y- and z-axis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssp</span> <span class="pre">-</span> <span class="pre">template</span></code>: specify the simple stellar population lookup template to get the stellar spectrum for each stars particle. In RUBIX frequently “BruzualCharlot2003” is used.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NBVAL_SKIP</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">rubix.core.pipeline</span> <span class="kn">import</span> <span class="n">RubixPipeline</span> 
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pipeline&quot;</span><span class="p">:{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;calc_ifu&quot;</span><span class="p">},</span>
+    
+    <span class="s2">&quot;logger&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;log_level&quot;</span><span class="p">:</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;log_file_path&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(name)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;IllustrisAPI&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;api_key&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ILLUSTRIS_API_KEY&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;particle_type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;stars&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;simulation&quot;</span><span class="p">:</span> <span class="s2">&quot;TNG50-1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;snapshot&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+            <span class="s2">&quot;save_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        
+        <span class="s2">&quot;load_galaxy_args&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+        <span class="s2">&quot;reuse&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="p">},</span>
+        
+        <span class="s2">&quot;subset&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;use_subset&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;subset_size&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;simulation&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;IllustrisTNG&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;data/galaxy-id-14.hdf5&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    
+    <span class="p">},</span>
+    <span class="s2">&quot;output_path&quot;</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;telescope&quot;</span><span class="p">:</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MUSE&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;psf&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">},</span>
+         <span class="s2">&quot;lsf&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sigma&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+         <span class="s2">&quot;noise&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;signal_to_noise&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="s2">&quot;noise_distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">},},</span>
+    <span class="s2">&quot;cosmology&quot;</span><span class="p">:</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;PLANCK15&quot;</span><span class="p">},</span>
+        
+    <span class="s2">&quot;galaxy&quot;</span><span class="p">:</span>
+        <span class="p">{</span><span class="s2">&quot;dist_z&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+         <span class="s2">&quot;rotation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;edge-on&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+        
+    <span class="s2">&quot;ssp&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;template&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;BruzualCharlot2003&quot;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>        
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-14 11:25:30,153 - rubix - INFO - 
+   ___  __  _____  _____  __
+  / _ \/ / / / _ )/  _/ |/_/
+ / , _/ /_/ / _  |/ /_&gt;  &lt;
+/_/|_|\____/____/___/_/|_|
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-14 11:25:30,154 - rubix - INFO - Rubix version: 0.0.post101+gda5b92f.d20241101
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-14 11:25:30,154 - rubix - WARNING - python-fsps is not installed. Please install it to use this function. Install using pip install fsps and check the installation page: https://dfm.io/python-fsps/current/installation/ for more details. Especially, make sure to set all necessary environment variables.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-pipeline-yaml">
+<h2>Step 2: Pipeline yaml<a class="headerlink" href="#step-2-pipeline-yaml" title="Link to this heading">#</a></h2>
+<p>To run the RUBIX pipeline, you need a yaml file (stored in <code class="docutils literal notranslate"><span class="pre">rubix/config/pipeline_config.yml</span></code>) that defines which functions are used during the execution of the pipeline. This shows the example pipeline yaml to compute a stellar IFU cube.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">calc_ifu</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Transformers</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">rotate_galaxy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rotate_galaxy</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;face-on&quot;</span>
+<span class="w">    </span><span class="nt">filter_particles</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">filter_particles</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rotate_galaxy</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">spaxel_assignment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spaxel_assignment</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">filter_particles</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+
+<span class="w">    </span><span class="nt">reshape_data</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reshape_data</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spaxel_assignment</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+
+<span class="w">    </span><span class="nt">calculate_spectra</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">calculate_spectra</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reshape_data</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+
+<span class="w">    </span><span class="nt">scale_spectrum_by_mass</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scale_spectrum_by_mass</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">calculate_spectra</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">doppler_shift_and_resampling</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">doppler_shift_and_resampling</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scale_spectrum_by_mass</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">calculate_datacube</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">calculate_datacube</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">doppler_shift_and_resampling</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">convolve_psf</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">convolve_psf</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">calculate_datacube</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">convolve_lsf</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">convolve_lsf</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">convolve_psf</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<span class="w">    </span><span class="nt">apply_noise</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apply_noise</span>
+<span class="w">      </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">convolve_lsf</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">      </span><span class="nt">kwargs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</pre></div>
+</div>
+<p>Ther is one thing you have to know about the naming of the functions in this yaml: To use the functions inside the pipeline, the functions have to be called exactly the same as they are returned from the core module function!</p>
+</section>
+<section id="step-3-run-the-pipeline">
+<h2>Step 3: Run the pipeline<a class="headerlink" href="#step-3-run-the-pipeline" title="Link to this heading">#</a></h2>
+<p>After defining the <code class="docutils literal notranslate"><span class="pre">config</span></code> and the <code class="docutils literal notranslate"><span class="pre">pipeline_config</span></code> you can simply run the whole pipeline by these two lines of code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NBVAL_SKIP</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">RubixPipeline</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="n">rubixdata</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/buck/Documents/Nexus/Projects/rubix/rubix/telescope/factory.py:24: UserWarning: No telescope config provided, using default stored in /Users/buck/Documents/Nexus/Projects/rubix/rubix/telescope/telescopes.yaml
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">BeartypeCallHintParamViolation</span><span class="g g-Whitespace">            </span>Traceback (most recent call last)
+<span class="nn">File ~/miniforge3/envs/rubix/lib/python3.13/site-packages/jaxtyping/_decorator.py:412,</span> in <span class="ni">jaxtyped.&lt;locals&gt;.wrapped_fn_impl</span><span class="nt">(args, kwargs, bound, memos)</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">412</span>     <span class="n">param_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">413</span> <span class="k">except</span> <span class="n">AnnotationError</span><span class="p">:</span>
+
+<span class="nn">File &lt;@beartype(rubix.telescope.base.BaseTelescope) at 0x12f365d00&gt;:131,</span> in <span class="ni">BaseTelescope</span><span class="nt">(__beartype_get_violation, __beartype_conf, __beartype_getrandbits, __beartype_object_4805020688, __beartype_object_5078472352, __beartype_check_meta, __beartype_func, *args, **kwargs)</span>
+
+<span class="ne">BeartypeCallHintParamViolation</span>: Method rubix.telescope.base.BaseTelescope() parameter signal_to_noise=&quot;None&quot; violates type hint &lt;class &#39;float&#39;&gt;, as &lt;class &quot;builtins.NoneType&quot;&gt; &quot;None&quot; not instance of float.
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">BeartypeCallHintParamViolation</span><span class="g g-Whitespace">            </span>Traceback (most recent call last)
+<span class="nn">File ~/miniforge3/envs/rubix/lib/python3.13/site-packages/jaxtyping/_decorator.py:769,</span> in <span class="ni">_get_problem_arg</span><span class="nt">(param_signature, args, kwargs, arguments, module, typechecker)</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">769</span>     <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File &lt;@beartype(rubix.telescope.base.check_single_arg) at 0x12f366e80&gt;:28,</span> in <span class="ni">check_single_arg</span><span class="nt">(__beartype_get_violation, __beartype_conf, __beartype_check_meta, __beartype_func, *args, **kwargs)</span>
+
+<span class="ne">BeartypeCallHintParamViolation</span>: Method rubix.telescope.base.check_single_arg() parameter signal_to_noise=&quot;None&quot; violates type hint &lt;class &#39;float&#39;&gt;, as &lt;class &quot;builtins.NoneType&quot;&gt; &quot;None&quot; not instance of float.
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">TypeCheckError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">File ~/miniforge3/envs/rubix/lib/python3.13/site-packages/jaxtyping/_decorator.py:417,</span> in <span class="ni">jaxtyped.&lt;locals&gt;.wrapped_fn_impl</span><span class="nt">(args, kwargs, bound, memos)</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">417</span>     <span class="n">argmsg</span> <span class="o">=</span> <span class="n">_get_problem_arg</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span>         <span class="n">param_signature</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>         <span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">420</span>         <span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">421</span>         <span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">422</span>         <span class="n">module</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span>         <span class="n">typechecker</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">425</span> <span class="k">except</span> <span class="n">TypeCheckError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File ~/miniforge3/envs/rubix/lib/python3.13/site-packages/jaxtyping/_decorator.py:772,</span> in <span class="ni">_get_problem_arg</span><span class="nt">(param_signature, args, kwargs, arguments, module, typechecker)</span>
+<span class="g g-Whitespace">    </span><span class="mi">771</span>         <span class="n">keep_value</span> <span class="o">=</span> <span class="n">_pformat</span><span class="p">(</span><span class="n">arguments</span><span class="p">[</span><span class="n">keep_name</span><span class="p">],</span> <span class="n">short_self</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">772</span>         <span class="k">raise</span> <span class="n">TypeCheckError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span>             <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The problem arose whilst typechecking parameter &#39;</span><span class="si">{</span><span class="n">keep_name</span><span class="si">}</span><span class="s2">&#39;.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span>             <span class="sa">f</span><span class="s2">&quot;Actual value: </span><span class="si">{</span><span class="n">keep_value</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">775</span>             <span class="sa">f</span><span class="s2">&quot;Expected type: </span><span class="si">{</span><span class="n">keep_annotation</span><span class="si">}</span><span class="s2">.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">776</span>         <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">777</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">778</span>     <span class="c1"># Could not localise the problem to a single argument -- probably due to</span>
+<span class="g g-Whitespace">    </span><span class="mi">779</span>     <span class="c1"># e.g. a mismatched typevar, which each individual argument is okay with.</span>
+
+<span class="ne">TypeCheckError</span>: 
+<span class="n">The</span> <span class="n">problem</span> <span class="n">arose</span> <span class="n">whilst</span> <span class="n">typechecking</span> <span class="n">parameter</span> <span class="s1">&#39;signal_to_noise&#39;</span><span class="o">.</span>
+<span class="n">Actual</span> <span class="n">value</span><span class="p">:</span> <span class="kc">None</span>
+<span class="n">Expected</span> <span class="nb">type</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">float</span><span class="s1">&#39;&gt;.</span>
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">TypeCheckError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#NBVAL_SKIP</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">pipe</span> <span class="o">=</span> <span class="n">RubixPipeline</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">rubixdata</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+
+<span class="nn">File ~/Documents/Nexus/Projects/rubix/rubix/core/pipeline.py:59,</span> in <span class="ni">RubixPipeline.__init__</span><span class="nt">(self, user_config)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;logger&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="bp">self</span><span class="o">.</span><span class="n">ssp</span> <span class="o">=</span> <span class="n">get_ssp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_config</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">59</span> <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span> <span class="o">=</span> <span class="n">get_telescope</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_config</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_data</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">1</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File ~/miniforge3/envs/rubix/lib/python3.13/site-packages/jaxtyping/_decorator.py:449,</span> in <span class="ni">jaxtyped.&lt;locals&gt;.wrapped_fn_impl</span><span class="nt">(args, kwargs, bound, memos)</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span>             <span class="k">raise</span> <span class="n">TypeCheckError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="c1"># Actually call the function.</span>
+<span class="ne">--&gt; </span><span class="mi">449</span> <span class="n">out</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span> <span class="k">if</span> <span class="n">full_signature</span><span class="o">.</span><span class="n">return_annotation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">inspect</span><span class="o">.</span><span class="n">Signature</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>     <span class="c1"># Now type-check the return value. We need to include the</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="c1"># parameters in the type-checking here in case there are any</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="c1"># checking of the parameters. Unfortunately there doesn&#39;t seem</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span>     <span class="c1"># to be a way around that, so c&#39;est la vie.</span>
+<span class="g g-Whitespace">    </span><span class="mi">466</span>     <span class="n">kwargs</span><span class="p">[</span><span class="n">output_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span>
+
+<span class="nn">File ~/Documents/Nexus/Projects/rubix/rubix/core/telescope.py:42,</span> in <span class="ni">get_telescope</span><span class="nt">(config)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="c1"># TODO: this currently only loads telescope that are supported.</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="c1"># add support for custom telescopes</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">factory</span> <span class="o">=</span> <span class="n">TelescopeFactory</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">42</span> <span class="n">telescope</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_telescope</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;telescope&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">return</span> <span class="n">telescope</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">1</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File ~/miniforge3/envs/rubix/lib/python3.13/site-packages/jaxtyping/_decorator.py:449,</span> in <span class="ni">jaxtyped.&lt;locals&gt;.wrapped_fn_impl</span><span class="nt">(args, kwargs, bound, memos)</span>
+<span class="g g-Whitespace">    </span><span class="mi">446</span>             <span class="k">raise</span> <span class="n">TypeCheckError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="c1"># Actually call the function.</span>
+<span class="ne">--&gt; </span><span class="mi">449</span> <span class="n">out</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span> <span class="k">if</span> <span class="n">full_signature</span><span class="o">.</span><span class="n">return_annotation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">inspect</span><span class="o">.</span><span class="n">Signature</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>     <span class="c1"># Now type-check the return value. We need to include the</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="c1"># parameters in the type-checking here in case there are any</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="c1"># checking of the parameters. Unfortunately there doesn&#39;t seem</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span>     <span class="c1"># to be a way around that, so c&#39;est la vie.</span>
+<span class="g g-Whitespace">    </span><span class="mi">466</span>     <span class="n">kwargs</span><span class="p">[</span><span class="n">output_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span>
+
+<span class="nn">File ~/Documents/Nexus/Projects/rubix/rubix/telescope/factory.py:83,</span> in <span class="ni">TelescopeFactory.create_telescope</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="n">wave_seq</span> <span class="o">=</span> <span class="n">calculate_wave_seq</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;wave_range&quot;</span><span class="p">],</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;wave_res&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="n">wave_edges</span> <span class="o">=</span> <span class="n">calculate_wave_edges</span><span class="p">(</span><span class="n">wave_seq</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;wave_res&quot;</span><span class="p">])</span>
+<span class="ne">---&gt; </span><span class="mi">83</span> <span class="n">telescope</span> <span class="o">=</span> <span class="n">BaseTelescope</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="n">fov</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;fov&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>     <span class="n">spatial_res</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;spatial_res&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>     <span class="n">wave_range</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;wave_range&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="n">wave_res</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;wave_res&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>     <span class="n">lsf_fwhm</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;lsf_fwhm&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>     <span class="n">signal_to_noise</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;signal_to_noise&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>     <span class="n">sbin</span><span class="o">=</span><span class="n">sbin</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="n">aperture_region</span><span class="o">=</span><span class="n">aperture_region</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span>     <span class="n">pixel_type</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pixel_type&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="n">wave_seq</span><span class="o">=</span><span class="n">wave_seq</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">wave_edges</span><span class="o">=</span><span class="n">wave_edges</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="n">telescope</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">name</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">return</span> <span class="n">telescope</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">3</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File ~/miniforge3/envs/rubix/lib/python3.13/site-packages/jaxtyping/_decorator.py:582,</span> in <span class="ni">_check_dataclass_annotations</span><span class="nt">(self, typechecker)</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">f</span> <span class="o">=</span> <span class="n">_make_fn_with_signature</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__qualname__</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span>     <span class="n">output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span> <span class="n">f</span> <span class="o">=</span> <span class="n">jaxtyped</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">typechecker</span><span class="o">=</span><span class="n">typechecker</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">582</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">1</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File ~/miniforge3/envs/rubix/lib/python3.13/site-packages/jaxtyping/_decorator.py:446,</span> in <span class="ni">jaxtyped.&lt;locals&gt;.wrapped_fn_impl</span><span class="nt">(args, kwargs, bound, memos)</span>
+<span class="g g-Whitespace">    </span><span class="mi">444</span>             <span class="k">raise</span> <span class="n">TypeCheckError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">445</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">446</span>             <span class="k">raise</span> <span class="n">TypeCheckError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">    </span><span class="mi">448</span> <span class="c1"># Actually call the function.</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span> <span class="n">out</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="ne">TypeCheckError</span>: Type-check error whilst checking the parameters of rubix.telescope.base.BaseTelescope.
+<span class="n">The</span> <span class="n">problem</span> <span class="n">arose</span> <span class="n">whilst</span> <span class="n">typechecking</span> <span class="n">parameter</span> <span class="s1">&#39;signal_to_noise&#39;</span><span class="o">.</span>
+<span class="n">Actual</span> <span class="n">value</span><span class="p">:</span> <span class="kc">None</span>
+<span class="n">Expected</span> <span class="nb">type</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">float</span><span class="s1">&#39;&gt;.</span>
+<span class="gt">----------------------</span>
+<span class="n">Called</span> <span class="k">with</span> <span class="n">parameters</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s1">&#39;self&#39;</span><span class="p">:</span>
+  <span class="n">BaseTelescope</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+  <span class="s1">&#39;fov&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">5</span><span class="mf">.0</span><span class="p">,</span>
+  <span class="s1">&#39;spatial_res&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">0</span><span class="mf">.2</span><span class="p">,</span>
+  <span class="s1">&#39;wave_range&#39;</span><span class="p">:</span>
+  <span class="p">[</span><span class="mf">4700.15</span><span class="p">,</span> <span class="mf">9351.4</span><span class="p">],</span>
+  <span class="s1">&#39;wave_res&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">1</span><span class="mf">.25</span><span class="p">,</span>
+  <span class="s1">&#39;lsf_fwhm&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">2</span><span class="mf">.51</span><span class="p">,</span>
+  <span class="s1">&#39;signal_to_noise&#39;</span><span class="p">:</span>
+  <span class="kc">None</span><span class="p">,</span>
+  <span class="s1">&#39;sbin&#39;</span><span class="p">:</span>
+  <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+  <span class="s1">&#39;aperture_region&#39;</span><span class="p">:</span>
+  <span class="n">f32</span><span class="p">[</span><span class="mi">625</span><span class="p">],</span>
+  <span class="s1">&#39;pixel_type&#39;</span><span class="p">:</span>
+  <span class="s1">&#39;square&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;wave_seq&#39;</span><span class="p">:</span>
+  <span class="n">f32</span><span class="p">[</span><span class="mi">3721</span><span class="p">],</span>
+  <span class="s1">&#39;wave_edges&#39;</span><span class="p">:</span>
+  <span class="n">f32</span><span class="p">[</span><span class="mi">3722</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">Parameter</span> <span class="n">annotations</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">fov</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">spatial_res</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">wave_range</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">wave_res</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lsf_fwhm</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">signal_to_noise</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">sbin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">aperture_region</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s1">&#39;sbin*sbin&#39;</span><span class="p">],</span> <span class="n">pixel_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">wave_seq</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">],</span> <span class="n">wave_edges</span><span class="p">:</span> <span class="n">Float</span><span class="p">[</span><span class="n">Array</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-mock-data">
+<h2>Step 4: Mock-data<a class="headerlink" href="#step-4-mock-data" title="Link to this heading">#</a></h2>
+<p>Now we have our final datacube and can use the mock-data to do science. Here we have a quick look in the optical wavelengthrange of the mock-datacube and show the spectra of a central spaxel and a spatial image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NBVAL_SKIP</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+
+<span class="n">wave</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">wave_seq</span>
+<span class="c1"># get the indices of the visible wavelengths of 4000-8000 Angstroms</span>
+<span class="n">visible_indices</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">wave</span> <span class="o">&gt;=</span> <span class="mi">4000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">wave</span> <span class="o">&lt;=</span> <span class="mi">8000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is how you can access the spectrum of an individual spaxel, the wavelength can be accessed via <code class="docutils literal notranslate"><span class="pre">pipe.wave_seq</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NBVAL_SKIP</span>
+<span class="n">wave</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">wave_seq</span>
+
+<span class="n">spectra</span> <span class="o">=</span> <span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">datacube</span> <span class="c1"># Spectra of all stars</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spectra</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">spectra</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">,:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot a spacial image of the data cube</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NBVAL_SKIP</span>
+<span class="c1"># get the spectra of the visible wavelengths from the ifu cube</span>
+<span class="n">visible_spectra</span> <span class="o">=</span> <span class="n">rubixdata</span><span class="o">.</span><span class="n">stars</span><span class="o">.</span><span class="n">datacube</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">visible_indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="c1">#visible_spectra.shape</span>
+
+<span class="c1"># Sum up all spectra to create an image</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">visible_spectra</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;inferno&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="done">
+<h2>DONE!<a class="headerlink" href="#done" title="Link to this heading">#</a></h2>
+<p>Congratulations, you have sucessfully run the RUBIX pipeline to create your own mock-observed IFU datacube! Now enjoy playing around with the RUBIX pipeline and enjoy doing amazing science with RUBIX :)</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pipeline_demo.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Concept of the pipeline</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rubix_pipeline_stepwise.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RUBIX pipeline in steps</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-the-pipeline">How to use the Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-config">Step 1: Config</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-pipeline-yaml">Step 2: Pipeline yaml</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-run-the-pipeline">Step 3: Run the pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-mock-data">Step 4: Mock-data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#done">DONE!</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ufuk, Tobias, Anna Lena
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Ufuk, Tobias, Anna Lena.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
