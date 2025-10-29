@@ -68,12 +68,13 @@
 
 							<section>
 								<h2>People and their projects</h2>
-								<h3>Christian: Deep multi-modal representation learning for stellar spectra</h3>
-								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
-									Given the rising number of surveys that measure spectra of Milky Way stars, the question of how to gain the most knowledge through cross-survey analyses becomes more 
-									important than ever. In this work, state of the art deep multi-modal representation learning algorithms are employed, including contrastive learning and multi-modal 
-									Variational Auto Encoders. Thus, resulting in representations that capture the informative aspects of the data. The representations produced by these algorithms, 
-									are then used as foundation for multi-modal tasks, such as cross-modal generation and fusion.
+								<h3>Nicklas: Magento-hydrodynamic simulations of binary stars</h3>
+								<p><span class="image left"><img src="images/denisty.png" alt="" /></span>
+									In this project, magnetohydrodynamic (MHD) simulations with the differentiable solver jf1uids are used to study how binary star systems and small star clusters, embedded in the interstellar medium, interact with their surroundings under the influence of stellar winds, cosmic rays and external magnetic fields. The adjacent figure shows the density slice in the xy plane of a colliding wind binary, with an asymmetric bow shock and a dense wind interaction region. An additional goal is to use gradient-based optimization or similar methods to recover physical parameters from unknown simulations or real observed data.
+								</p>
+								<h3>Luca: Lagrangian neural ODEs</h3>
+								<p><span class="image left"><img src="images/Lagrangian_neural_ODEs.png" alt="" /></span>
+									Neural ODEs are a widely used, powerful machine learning technique in particular for physics. However, not every solution is physical in that it is an Euler-Lagrange equation. We present Helmholtz metrics to quantify this resemblance for a given ODE and demonstrate their capabilities on several fundamental systems with noise. We combine them with a second order neural ODE to form a Lagrangian neural ODE, which allows to learn Euler-Lagrange equations in a direct fashion and with zero additional inference cost. We demonstrate that, using only positional data, they can distinguish Lagrangian and non-Lagrangian systems and improve the neural ODE solutions.
 								</p>
 								<h3>Anna: Identifying Cluster Types found with AstroLink in MW-like Galaxies</h3>
 								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
@@ -83,25 +84,6 @@
 									satellites resulting in star streams in order to determine AstroLink's ability to find remnants of past mergers and to reconstruct the galaxy's merger history. 
 									Additonally, we investigate the young and compact clusters found in the disk to determine their origin and characteristics.
 								</p>
-								<h3>Lingyi: Model comparison and miss-specification detection for cosmological simulations</h3>
-								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
-									Cosmological simulation is a powerful tool in advancing our understanding of galaxy evolution and formation. There are many simulations capable of describing physical 
-									properties such as gas cooling, star formation, scale relationships, chemical bimodality, and more. A question naturally arises with these simulations: How close are 
-									they to the reality? Many previous studies evaluate galaxy simulations using scaling relations which could be biased with only a few physical properties. In this work, 
-									we apply a novel model misspecification detection technique based on Bayesian Inference to compare simulated galaxy images from NIHAO and IllustrisTNG simulations against 
-									SDSS observations. After encoding images to summary space preserving original information as much as possible, a distribution discrepancy between real observed data and 
-									mock data in summary space indicates model misspecification. To this purpose, we perform an outlier detection on latent vectors. We further compare the inliers in summary 
-									space by casting Bayesian model comparison to classification task, to see which model is relatively the best. Additionally, we use explainable AI methods like SHAP values 
-									to partially explain our results.
-								</p>
-								<h3>Justin: Machine learning models for emission line prediction</h3>
-								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
-									Line emissivities of active galactic nuclei (AGN) can be accurately computed using photoionization software like <a href="https://trac.nublado.org/">CLOUDY</a>, 
-									but the data generation is quite slow. In order to enable the fast generation of large amounts of data for example for further computations inside cosmological simulation codes, 
-									machine learning methods like Deep Fully Connected Neural Networks or Neural Operators can be applied. The data required for training is generated once with cloudy as a 6 dimensional 
-									grid in the dimensions Eddington Luminosity, black hole mass, gas temperature, metallicity, hydrogen density and distance. The goal is to interpolate this data as fast and accurately 
-									as possible. 
-								</p>
 								<h3>Robin: Neural Operator learning for astrophysical problems</h3>
 								<p><span class="image left"><img src="images/robin.png" alt="" /></span>
 									Robin is generally interested in efficient and scalable solutions to computational problems, mainly utilising machine learning. 
@@ -110,7 +92,6 @@
 									In addition to inference time, accuracy and memory footprint, it is also of interest to quantify the predictive uncertainty in these applications to decide how much 
 									to trust the predictions of the surrogate model.
 								</p>
-								<h3>Sarp: Symplectic neural nets and hamiltonian neural nets for galactic dynamics</h3>
 								<h3>Leonard: Blown in the Wind: Simulation and Surrogate Modeling of Stellar Wind Feedback</h3>
 								<p><span class="image left"><img src="images/stellar_wind.gif" alt="" /></span>
 									Momentum, mass and energy injection from stellar winds and supernova explosions of massive stars effect the interstellar medium (ISM). 
@@ -120,7 +101,6 @@
 									and re-acceleration of galactic cosmic rays. However, it is computationally infeasible to make galaxy simulations fine enough (in terms of the timestep / 
 									spatial resolution) to accurately resolve wind-blown bubbles and their impact, motivating a surrogate model based on machine learning models.
 								</p>
-								<h3>Christian: Representation learning and normalizing flows</h3>
 							</section>
 
 							<h1>PhD projects</h1>
@@ -211,6 +191,32 @@
 
 							<h1>Past projects</h1>
 							<section>
+								<h3>Christian: Deep multi-modal representation learning for stellar spectra</h3>
+								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
+									Given the rising number of surveys that measure spectra of Milky Way stars, the question of how to gain the most knowledge through cross-survey analyses becomes more 
+									important than ever. In this work, state of the art deep multi-modal representation learning algorithms are employed, including contrastive learning and multi-modal 
+									Variational Auto Encoders. Thus, resulting in representations that capture the informative aspects of the data. The representations produced by these algorithms, 
+									are then used as foundation for multi-modal tasks, such as cross-modal generation and fusion.
+								</p>
+								<h3>Lingyi: Model comparison and miss-specification detection for cosmological simulations</h3>
+								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
+									Cosmological simulation is a powerful tool in advancing our understanding of galaxy evolution and formation. There are many simulations capable of describing physical 
+									properties such as gas cooling, star formation, scale relationships, chemical bimodality, and more. A question naturally arises with these simulations: How close are 
+									they to the reality? Many previous studies evaluate galaxy simulations using scaling relations which could be biased with only a few physical properties. In this work, 
+									we apply a novel model misspecification detection technique based on Bayesian Inference to compare simulated galaxy images from NIHAO and IllustrisTNG simulations against 
+									SDSS observations. After encoding images to summary space preserving original information as much as possible, a distribution discrepancy between real observed data and 
+									mock data in summary space indicates model misspecification. To this purpose, we perform an outlier detection on latent vectors. We further compare the inliers in summary 
+									space by casting Bayesian model comparison to classification task, to see which model is relatively the best. Additionally, we use explainable AI methods like SHAP values 
+									to partially explain our results.
+								</p>
+								<h3>Justin: Machine learning models for emission line prediction</h3>
+								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
+									Line emissivities of active galactic nuclei (AGN) can be accurately computed using photoionization software like <a href="https://trac.nublado.org/">CLOUDY</a>, 
+									but the data generation is quite slow. In order to enable the fast generation of large amounts of data for example for further computations inside cosmological simulation codes, 
+									machine learning methods like Deep Fully Connected Neural Networks or Neural Operators can be applied. The data required for training is generated once with cloudy as a 6 dimensional 
+									grid in the dimensions Eddington Luminosity, black hole mass, gas temperature, metallicity, hydrogen density and distance. The goal is to interpolate this data as fast and accurately 
+									as possible. 
+								</p>
 								<h3>Ufuk: Galaxy morphology models with AI</h3>
 								<p><span class="image left"><img src="images/pic15.jpg" alt="" /></span>
 									We investigate the use of machine learning to create galaxy morphology models and encode the information 
@@ -269,6 +275,8 @@
 									Here we investigate a set of new cosmological galaxy formation models that include improved prescriptions for chemical enrichment and compare our findings to the 
 									observational data.
 								</p>
+								<h3>Sarp: Symplectic neural nets and hamiltonian neural nets for galactic dynamics</h3>
+
 							</section>
 						</div>
 					</div>
